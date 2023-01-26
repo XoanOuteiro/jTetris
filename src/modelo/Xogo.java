@@ -14,6 +14,7 @@ public class Xogo extends JPanel {
     public final int MAX_X = 200;
     public final int MAX_Y = 200;
     public boolean pausa;
+    public JPanel ventanaPrincipal;
     public int numeroLineas;
     public int rowAM ;
     public int colAM ;
@@ -23,6 +24,8 @@ public class Xogo extends JPanel {
     //Construction
     public Xogo(JPanel holder, int colAm){
         //Match styles
+        this.ventanaPrincipal = holder;
+        
         holder.setVisible(false);
         this.setBounds(holder.getBounds());
         this.setBackground(holder.getBackground());
