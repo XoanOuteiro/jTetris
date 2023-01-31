@@ -14,7 +14,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         initComponents();
         
-        this.add(new Xogo(xogoPlacehold,10));
+        Xogo xogo1 = new Xogo(xogoPlacehold,this,10);
     }
 
     /**
@@ -98,6 +98,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
     }
+
+        
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel xogoPlacehold;

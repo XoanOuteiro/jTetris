@@ -11,23 +11,24 @@ public class Cadrado {
     public int x;
     public int y;
     public Color corRecheo;
-    public int lado_cadrado; //same as xogo.java
+    public int lado_cadrado ; //same as xogo.java
     public JLabel label_cadrado;
-    
-    /*???*/public int state;   // 1 means floored piece, 2 means player-controlled piece, 0 (?) void
+    public boolean isFloored;
     
     //Construction
-    public Cadrado(int specify, int latSize, int posX, int posY, Color color){
+    public Cadrado(boolean specify, int posX, int posY, Color color){
         //Get comps
-        this.state = specify;
-        this.lado_cadrado = latSize;
+        this.isFloored = specify;
+        this.lado_cadrado = Xogo.LADO_CADRADO;
         this.x = posX;
         this.y = posY;
         
         //Create label
+        this.label_cadrado = new JLabel("");
         this.label_cadrado.setOpaque(true);
-        this.label_cadrado.setSize(latSize,latSize);
+        this.label_cadrado.setSize(lado_cadrado,lado_cadrado);
         this.label_cadrado.setBackground(color);
+        this.label_cadrado.setBounds(x,y,lado_cadrado,lado_cadrado);    
     }
 
 }

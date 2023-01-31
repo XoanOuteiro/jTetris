@@ -1,80 +1,73 @@
 package modelo;
 
+import iu.VentanaPrincipal;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Graphics;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
  *
  * by: @XoanOuteiro & @Samuyo
  */
-public class Xogo extends JPanel {
+public class Xogo{
     
-    public final int LADO_CADRADO = 10;
+    public static final int LADO_CADRADO = 10;
     public final int MAX_X = 200;
     public final int MAX_Y = 200;
     public boolean pausa;
-    public JPanel ventanaPrincipal;
+    public VentanaPrincipal ventanaPrincipal;
     public int numeroLineas;
     public int rowAM ;
     public int colAM ;
     public int celSiz ;//= to lado¿
     
-    //test
-    public int[][] testBlock = {{1,0},{1,0},{1,1}};
-    public void drawBlock(Graphics g){
-        for (int row = 0; row < testBlock.length; row++) {
-            for (int col = 0; col < testBlock[0].length; col++) {
-                if(testBlock[row][col]==1){
-                    g.setColor(Color.red);
-                    g.fillRect(col*celSiz, row*celSiz , celSiz, celSiz);
-                }
-            }
-        }
-    }
-    //end of test
+    public FichaT fichaActual;
             
     //Construction
-    public Xogo(JPanel holder, int colAm){
+    public Xogo(JPanel holder,VentanaPrincipal ventana,int colAm){
         //Match styles
-        this.ventanaPrincipal = holder;
+        this.ventanaPrincipal = ventana;
         
         //Set placeholder pane as invisible
-        holder.setVisible(false);
+        holder.setVisible(true);
         
         //Get attributes of shapeholder
-        this.setBounds(holder.getBounds());
-        this.setBackground(holder.getBackground());
-        this.setBorder(holder.getBorder());
+        holder.setBounds(holder.getBounds());
+        holder.setBackground(holder.getBackground());
+        holder.setBorder(holder.getBorder());
         
         //Create grid
         this.colAM = colAm;
-        this.celSiz = this.getBounds().width/colAm;
-        this.rowAM = this.getBounds().height/celSiz; 
+        this.celSiz = holder.getBounds().width/colAm;
+        this.rowAM = holder.getBounds().height/celSiz; 
+        
+        //TEST
+        this.fichaActual = new FichaT(39,0);
+        holder.add(fichaActual.right.label_cadrado);
     }
     
-    //OVERRIDES
-    /**
-     * 
-     * @param g 
-     * 
-     * Multithreaded permadraw
-     */
+    
+    
+    /*
+            //OVERRIDES
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         
         drawGrid(g);
-        drawBlock(g);
     }
     
     public void drawGrid(Graphics g){
-        for(int i=0; i<rowAM; i++){
+        for(int i=0; i< rowAM; i++){
             for (int j = 0; j < colAM; j++) {
                 
-                //Grid(style only)
-                g.drawRect(j*celSiz, i*celSiz , celSiz, celSiz);
+                 //Grid(style only)
+                 g.drawRect(j*celSiz, i*celSiz , celSiz, celSiz);
+                }
             }
         }
     }
+    */
 }
