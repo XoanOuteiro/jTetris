@@ -1,7 +1,9 @@
 package modelo;
 
 import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.border.Border;
 
 /**
  *
@@ -28,7 +30,8 @@ public class Cadrado {
         this.label_cadrado.setOpaque(true);
         this.label_cadrado.setSize(lado_cadrado,lado_cadrado);
         this.label_cadrado.setBackground(color);
-        this.label_cadrado.setBounds(x,y,lado_cadrado,lado_cadrado);    
+        this.label_cadrado.setBounds(x,y,lado_cadrado,lado_cadrado);
+        this.label_cadrado.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
 }
