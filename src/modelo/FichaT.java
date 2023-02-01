@@ -15,8 +15,6 @@ public class FichaT extends Ficha{
      left;        =2
      centerDown;  =3
     */
-
-
     //Color
     public Color tColor = Color.red;
     

@@ -1,10 +1,6 @@
 package modelo;
 
 import iu.VentanaPrincipal;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -31,7 +27,7 @@ public class Xogo{
         this.ventanaPrincipal = ventana;
         
         //TEST
-        this.fichaActual = new FichaCadrada(60,60);
+        this.fichaActual = new FichaL(60,60);
         for (int i = 0; i < 4; i++) {
             holder.add(fichaActual.cadrados[i].label_cadrado);
         }

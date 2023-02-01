@@ -13,7 +13,6 @@ public class FichaCadrada extends Ficha{
     [0][1]
     [2][3]
     */
-    
     public Color tColor = Color.blue;
     
     //Construction
