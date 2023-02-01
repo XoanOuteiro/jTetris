@@ -20,6 +20,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //Get attributes of shapeholder
         sizeR.setVisible(true);
         xogoPlacehold.setBounds(xogoPlacehold.getBounds());
+        xogoPlacehold.setFocusable(true);
         xogoPlacehold.setBackground(xogoPlacehold.getBackground());
         xogoPlacehold.setBorder(xogoPlacehold.getBorder());
         xogoPlacehold.setSize(xogoPlacehold.getPreferredSize());
@@ -70,6 +71,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         xogoPlacehold.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         xogoPlacehold.setPreferredSize(new java.awt.Dimension(240, 600));
+        xogoPlacehold.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                xogoPlaceholdKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout xogoPlaceholdLayout = new javax.swing.GroupLayout(xogoPlacehold);
         xogoPlacehold.setLayout(xogoPlaceholdLayout);
@@ -190,6 +196,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void xogoPlaceholdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xogoPlaceholdKeyPressed
+        // TODO add your handling code here:
+        
+        /*!!!!!!!
+        
+            Consider changing to xogoPlaceholKeyTyped(java.awt.event.KeyEvent evt);
+        
+          !!!!!!!*/
+        
+        if(evt.getKeyChar() == 'a'){
+            //Move left
+            
+        } else if(evt.getKeyChar() == 'd'){
+            //Move right
+            
+        } else if(evt.getKeyChar() == 'w'){
+            //Rotate
+            
+        } else if(evt.getKeyChar() == 's'){
+            //Move down
+            
+        }
+    }//GEN-LAST:event_xogoPlaceholdKeyPressed
 
     /**
      * @param args the command line arguments
