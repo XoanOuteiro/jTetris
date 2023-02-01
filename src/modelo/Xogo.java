@@ -35,6 +35,5 @@ public class Xogo{
         for (int i = 0; i < 4; i++) {
             holder.add(fichaActual.cadrados[i].label_cadrado);
         }
-        ;
     }
 }
