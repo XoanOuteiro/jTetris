@@ -82,7 +82,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGap(0, 598, Short.MAX_VALUE)
         );
 
-        panelScore.setText("Polla");
+        panelScore.setText("0");
         panelScore.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         next.setText(" NEXT");
