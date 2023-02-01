@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  */
 public class Xogo{
     
-    public static final int LADO_CADRADO = 10;
+    public static final int LADO_CADRADO = 20;
     public final int MAX_X = 200;
     public final int MAX_Y = 200;
     public boolean pausa;
@@ -30,44 +30,11 @@ public class Xogo{
         //Match styles
         this.ventanaPrincipal = ventana;
         
-        //Set placeholder pane as invisible
-        holder.setVisible(true);
-        
-        //Get attributes of shapeholder
-        holder.setBounds(holder.getBounds());
-        holder.setBackground(holder.getBackground());
-        holder.setBorder(holder.getBorder());
-        
-        //Create grid
-        this.colAM = colAm;
-        this.celSiz = holder.getBounds().width/colAm;
-        this.rowAM = holder.getBounds().height/celSiz; 
-        
         //TEST
-        this.fichaActual = new FichaT(39,0);
+        this.fichaActual = new FichaT(60,60);
         holder.add(fichaActual.right.label_cadrado);
+        holder.add(fichaActual.masterPiece.label_cadrado);
+        holder.add(fichaActual.centerDown.label_cadrado);
+        holder.add(fichaActual.left.label_cadrado);
     }
-    
-    
-    
-    /*
-            //OVERRIDES
-    @Override
-    protected void paintComponent(Graphics g){
-        super.paintComponent(g);
-        
-        drawGrid(g);
-    }
-    
-    public void drawGrid(Graphics g){
-        for(int i=0; i< rowAM; i++){
-            for (int j = 0; j < colAM; j++) {
-                
-                 //Grid(style only)
-                 g.drawRect(j*celSiz, i*celSiz , celSiz, celSiz);
-                }
-            }
-        }
-    }
-    */
 }

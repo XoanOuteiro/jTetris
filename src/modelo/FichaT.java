@@ -13,9 +13,7 @@ public class FichaT extends Ficha{
     public Cadrado masterPiece;
     public Cadrado left;
     public Cadrado centerDown;
-    
-    //SideSize
-    public final int L = 10;
+
 
     //Color
     public Color tColor = Color.red;
@@ -23,9 +21,9 @@ public class FichaT extends Ficha{
     //Player-controlled instancing
     public FichaT(int masterX, int masterY){
         this.masterPiece = new Cadrado(false,masterX,masterY,tColor);
-        this.centerDown = new Cadrado(false,masterX,masterY -L,tColor);
-        this.right = new Cadrado(false,masterX +L,masterY ,tColor);
-        this.left = new Cadrado(false,masterX -L,masterY ,tColor);
+        this.centerDown = new Cadrado(false,masterX,masterY +Xogo.LADO_CADRADO,tColor);
+        this.right = new Cadrado(false,masterX +Xogo.LADO_CADRADO,masterY ,tColor);
+        this.left = new Cadrado(false,masterX -Xogo.LADO_CADRADO,masterY ,tColor);
     }
    
 }

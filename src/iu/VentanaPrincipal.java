@@ -15,6 +15,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         initComponents();
         
         Xogo xogo1 = new Xogo(xogoPlacehold,this,10);
+        
+        //Get attributes of shapeholder
+        xogoPlacehold.setBounds(xogoPlacehold.getBounds());
+        xogoPlacehold.setBackground(xogoPlacehold.getBackground());
+        xogoPlacehold.setBorder(xogoPlacehold.getBorder());
     }
 
     /**
