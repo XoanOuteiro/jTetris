@@ -32,9 +32,9 @@ public class Xogo{
         
         //TEST
         this.fichaActual = new FichaT(60,60);
-        holder.add(fichaActual.right.label_cadrado);
-        holder.add(fichaActual.masterPiece.label_cadrado);
-        holder.add(fichaActual.centerDown.label_cadrado);
-        holder.add(fichaActual.left.label_cadrado);
+        for (int i = 0; i < 4; i++) {
+            holder.add(fichaActual.cadrados[i].label_cadrado);
+        }
+        ;
     }
 }
