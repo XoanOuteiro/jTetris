@@ -23,7 +23,7 @@ public class Xogo{
     public int colAM ;
     public int celSiz ;//= to lado¿
     
-    public FichaT fichaActual;
+    public Ficha fichaActual;
             
     //Construction
     public Xogo(JPanel holder,VentanaPrincipal ventana,int colAm){
@@ -31,7 +31,7 @@ public class Xogo{
         this.ventanaPrincipal = ventana;
         
         //TEST
-        this.fichaActual = new FichaT(60,60);
+        this.fichaActual = new FichaCadrada(60,60);
         for (int i = 0; i < 4; i++) {
             holder.add(fichaActual.cadrados[i].label_cadrado);
         }

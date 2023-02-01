@@ -15,7 +15,6 @@ public class FichaT extends Ficha{
      left;        =2
      centerDown;  =3
     */
-    public Cadrado[] cadrados = new Cadrado[4];
 
 
     //Color
