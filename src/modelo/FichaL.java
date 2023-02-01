@@ -21,6 +21,6 @@ public class FichaL extends Ficha{
         this.cadrados[0] = new Cadrado(false,masterX ,masterY,tColor);
         this.cadrados[1] = new Cadrado(false,masterX ,masterY + Xogo.LADO_CADRADO,tColor);
         this.cadrados[2] = new Cadrado(false,masterX ,masterY + (Xogo.LADO_CADRADO *2),tColor);
-        this.cadrados[3] = new Cadrado(false,masterX + Xogo.LADO_CADRADO ,masterY + (Xogo.LADO_CADRADO *2),tColor);;
+        this.cadrados[3] = new Cadrado(false,masterX + Xogo.LADO_CADRADO ,masterY + (Xogo.LADO_CADRADO *2),tColor);
     }
 }
