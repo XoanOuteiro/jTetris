@@ -37,31 +37,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void attributeHyperset() {
         //Attribute hyperset
         sizeR.setVisible(true);
+        
         xogoMainPane.setBounds(xogoMainPane.getBounds());
         xogoMainPane.setFocusable(true);
         xogoMainPane.setBackground(xogoMainPane.getBackground());
         xogoMainPane.setBorder(xogoMainPane.getBorder());
         xogoMainPane.setSize(xogoMainPane.getPreferredSize());
+        
         level.setBounds(level.getBounds());
         level.setBackground(level.getBackground());
         level.setBorder(level.getBorder());
+        
         next.setBounds(next.getBounds());
         next.setBackground(next.getBackground());
         next.setBorder(next.getBorder());
+        
         panelLevel.setBounds(panelLevel.getBounds());
         panelLevel.setBackground(panelLevel.getBackground());
         panelLevel.setBorder(panelLevel.getBorder());
+        
         panelNext.setBounds(panelNext.getBounds());
         panelNext.setBackground(panelNext.getBackground());
         panelNext.setBorder(panelNext.getBorder());
+        
         panelScore.setBounds(panelScore.getBounds());
         panelScore.setBackground(panelScore.getBackground());
         panelScore.setBorder(panelScore.getBorder());
+        panelScore.setHorizontalAlignment(SwingConstants.CENTER);
+        panelScore.setVerticalAlignment(SwingConstants.CENTER);
+        
         score.setBounds(score.getBounds());
         score.setBackground(score.getBackground());
         score.setBorder(score.getBorder());
-        panelScore.setHorizontalAlignment(SwingConstants.CENTER);
-        panelScore.setVerticalAlignment(SwingConstants.CENTER);
         
         //Config Button
         configButton.setFocusable(false);
@@ -238,7 +245,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         sizeRLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {level, next, score});
 
         configButton.setBackground(new java.awt.Color(255, 255, 255));
-        configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iu/buttonSprites/configButton.png"))); // NOI18N
+        configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton.png"))); // NOI18N
         configButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 configButtonActionPerformed(evt);
@@ -246,7 +253,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         playButton.setBackground(new java.awt.Color(255, 255, 255));
-        playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iu/buttonSprites/playButton.png"))); // NOI18N
+        playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/playButton.png"))); // NOI18N
         playButton.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 playButtonStateChanged(evt);
@@ -254,7 +261,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         helpButton.setBackground(new java.awt.Color(255, 255, 255));
-        helpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iu/buttonSprites/yellow_questionmark2.png"))); // NOI18N
+        helpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/yellow_questionmark2.png"))); // NOI18N
 
         javax.swing.GroupLayout sizeLLayout = new javax.swing.GroupLayout(sizeL);
         sizeL.setLayout(sizeLLayout);
