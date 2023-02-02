@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 public class Xogo{
     
     public static final int LADO_CADRADO = 20;
-    public static final int MAX_X = 240;
-    public static final int MAX_Y = 600;
+    public static final int MAX_X = 220;            //Changed to -20 so that X and Y detection would work
+    public static final int MAX_Y = 580;
     public boolean pausa;
     public VentanaPrincipal ventanaPrincipal;
     public int numeroLineas;
@@ -40,15 +40,21 @@ public class Xogo{
     
     //Mover
     public void moverFichaDereita(){
-        fichaActual.moverDereita();
+        if(ePosicionValida(fichaActual.getMostRightSquare().getX() + LADO_CADRADO , fichaActual.getMostRightSquare().getY())){
+            fichaActual.moverDereita();
+        }
+        
     }
     
     public void moverFichaEsquerda(){
-        fichaActual.moverEsquerda();
+        if(ePosicionValida(fichaActual.getMostLeftSquare().getX() - LADO_CADRADO , fichaActual.getMostLeftSquare().getY())){
+            fichaActual.moverEsquerda();
+        }
     }
     
     public void moverFichaAbaixo(){
-        fichaActual.moverAbaixo();
+        if(ePosicionValida(fichaActual.getMostDownSquare().getX() , fichaActual.getMostDownSquare().getY() + LADO_CADRADO))
+            fichaActual.moverAbaixo();
     }
     
     public void rotarFicha(){
@@ -78,7 +84,7 @@ public class Xogo{
         if( (x >= 0) && (x <= MAX_X) ){ clampedOnX = true; }
         
         //Clamped on Y?
-        if( (y >= 0) && (y <= MAX_Y) ){ clampedOnX = false; }
+        if( (y >= 0) && (y <= MAX_Y) ){ clampedOnY = true; }
         
         //Is occupied?
         //!!!TBI!!!

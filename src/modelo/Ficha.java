@@ -12,13 +12,7 @@ public abstract class Ficha {
     
     //Common methods
     public void moverDereita(){
-        //Get coords of most right square:
-        
-        
-        //IF most right square isnt on border:
-        
-        
-        //Apply change on all pieces:
+
         for (int i = 0; i < 4; i++) {
             cadrados[i].setX(cadrados[i].getX() + Xogo.LADO_CADRADO);
         }
@@ -28,13 +22,7 @@ public abstract class Ficha {
     }
     
     public void moverEsquerda(){
-        //Get coords of most right square:
-        
-        
-        //IF most right square isnt on border:
-        
-        
-        //Apply change on all pieces:
+
         for (int i = 0; i < 4; i++) {
             cadrados[i].setX(cadrados[i].getX() - Xogo.LADO_CADRADO);
         }
@@ -44,13 +32,7 @@ public abstract class Ficha {
     }
     
     public void moverAbaixo(){
-        //Get coords of most right square:
         
-        
-        //IF most right square isnt on border:
-        
-        
-        //Apply change on all pieces:
         for (int i = 0; i < 4; i++) {
             cadrados[i].setY(cadrados[i].getY() + Xogo.LADO_CADRADO);
         }
@@ -61,7 +43,46 @@ public abstract class Ficha {
     
     public void updateLabelPos(){
         for (int i = 0; i < 4; i++) {
-            this.cadrados[i].label_cadrado.setLocation(cadrados[i].getX(),cadrados[i].getY());
+            this.cadrados[i].label_cadrado.setLocation(this.cadrados[i].getX(),this.cadrados[i].getY());
         }
     }
+    
+    //Get [pos] piece
+    public Cadrado getMostDownSquare(){
+        Cadrado currentLower = this.cadrados[0];
+                
+        for (int i = 0; i < 4; i++) {
+            if(this.cadrados[i].getY() > currentLower.getY()){
+                currentLower = this.cadrados[i];
+            }
+        }
+        
+        return currentLower;
+    }
+    
+    public Cadrado getMostRightSquare(){
+        Cadrado currentLesser = this.cadrados[0];
+                
+        for (int i = 0; i < 4; i++) {
+            if(this.cadrados[i].getX() > currentLesser.getX()){
+                currentLesser = this.cadrados[i];
+                
+            }
+        }
+        
+        return currentLesser;
+    }
+    
+    public Cadrado getMostLeftSquare(){
+        Cadrado currentGreatest = this.cadrados[0];
+                
+        for (int i = 0; i < 4; i++) {
+            if(this.cadrados[i].getX() < currentGreatest.getX()){
+                currentGreatest = this.cadrados[i];
+            }
+        }
+        
+        return currentGreatest;
+    }
+
 }
