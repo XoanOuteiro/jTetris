@@ -24,13 +24,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         initComponents();
         
         //Game init
-        xogo = new Xogo(xogoPlacehold,this,10);
+        xogo = new Xogo(xogoMainPane,this,10);
         
-        attributeHyperset();
-        
-        menu.setVisible(true);
-      menu.setSize(new Dimension(400,500));
-      menu.setMinimumSize(new Dimension(200,200));
+        attributeHyperset();      
         
         //Start ticker
         timerTicks();
@@ -40,11 +36,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void attributeHyperset() {
         //Attribute hyperset
         sizeR.setVisible(true);
-        xogoPlacehold.setBounds(xogoPlacehold.getBounds());
-        xogoPlacehold.setFocusable(true);
-        xogoPlacehold.setBackground(xogoPlacehold.getBackground());
-        xogoPlacehold.setBorder(xogoPlacehold.getBorder());
-        xogoPlacehold.setSize(xogoPlacehold.getPreferredSize());
+        xogoMainPane.setBounds(xogoMainPane.getBounds());
+        xogoMainPane.setFocusable(true);
+        xogoMainPane.setBackground(xogoMainPane.getBackground());
+        xogoMainPane.setBorder(xogoMainPane.getBorder());
+        xogoMainPane.setSize(xogoMainPane.getPreferredSize());
         level.setBounds(level.getBounds());
         level.setBackground(level.getBackground());
         level.setBorder(level.getBorder());
@@ -65,6 +61,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         score.setBorder(score.getBorder());
         panelScore.setHorizontalAlignment(SwingConstants.CENTER);
         panelScore.setVerticalAlignment(SwingConstants.CENTER);
+        configButton.setFocusable(false);
+        playButton.setFocusable(false);
+        scoreButton.setFocusable(false);
+        configMenu.setVisible(false);
+        configMenu.setSize(new Dimension(400,500));
+        configMenu.setMinimumSize(new Dimension(200,200));
     }
 
     /**
@@ -76,9 +78,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        menu = new javax.swing.JFrame();
+        configMenu = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
-        xogoPlacehold = new javax.swing.JPanel();
+        xogoMainPane = new javax.swing.JPanel();
         sizeR = new javax.swing.JPanel();
         panelScore = new javax.swing.JLabel();
         next = new javax.swing.JLabel();
@@ -86,23 +88,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         score = new javax.swing.JLabel();
         panelLevel = new javax.swing.JPanel();
         panelNext = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        sizeL = new javax.swing.JPanel();
+        configButton = new javax.swing.JButton();
+        playButton = new javax.swing.JToggleButton();
+        scoreButton = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 60)); // NOI18N
         jLabel1.setText("Tetris");
 
-        javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu.getContentPane());
-        menu.getContentPane().setLayout(menuLayout);
-        menuLayout.setHorizontalGroup(
-            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuLayout.createSequentialGroup()
+        javax.swing.GroupLayout configMenuLayout = new javax.swing.GroupLayout(configMenu.getContentPane());
+        configMenu.getContentPane().setLayout(configMenuLayout);
+        configMenuLayout.setHorizontalGroup(
+            configMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(configMenuLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(104, Short.MAX_VALUE))
         );
-        menuLayout.setVerticalGroup(
-            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuLayout.createSequentialGroup()
+        configMenuLayout.setVerticalGroup(
+            configMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(configMenuLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addContainerGap(185, Short.MAX_VALUE))
@@ -111,22 +116,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        xogoPlacehold.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        xogoPlacehold.setPreferredSize(new java.awt.Dimension(240, 600));
-        xogoPlacehold.addKeyListener(new java.awt.event.KeyAdapter() {
+        xogoMainPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        xogoMainPane.setPreferredSize(new java.awt.Dimension(240, 600));
+        xogoMainPane.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                xogoPlaceholdKeyPressed(evt);
+                xogoMainPaneKeyPressed(evt);
             }
         });
 
-        javax.swing.GroupLayout xogoPlaceholdLayout = new javax.swing.GroupLayout(xogoPlacehold);
-        xogoPlacehold.setLayout(xogoPlaceholdLayout);
-        xogoPlaceholdLayout.setHorizontalGroup(
-            xogoPlaceholdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout xogoMainPaneLayout = new javax.swing.GroupLayout(xogoMainPane);
+        xogoMainPane.setLayout(xogoMainPaneLayout);
+        xogoMainPaneLayout.setHorizontalGroup(
+            xogoMainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 238, Short.MAX_VALUE)
         );
-        xogoPlaceholdLayout.setVerticalGroup(
-            xogoPlaceholdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        xogoMainPaneLayout.setVerticalGroup(
+            xogoMainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 598, Short.MAX_VALUE)
         );
 
@@ -207,22 +212,41 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(score)
                 .addGap(18, 18, 18)
                 .addComponent(panelScore, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         sizeRLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {panelLevel, panelNext});
 
         sizeRLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {level, next, score});
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+        configButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                configButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout sizeLLayout = new javax.swing.GroupLayout(sizeL);
+        sizeL.setLayout(sizeLLayout);
+        sizeLLayout.setHorizontalGroup(
+            sizeLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sizeLLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(sizeLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(configButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(playButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scoreButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        sizeLLayout.setVerticalGroup(
+            sizeLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sizeLLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(configButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scoreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(playButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -230,10 +254,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(sizeL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(xogoPlacehold, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(xogoMainPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sizeR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -242,21 +266,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(xogoPlacehold, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(xogoMainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sizeR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sizeL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void xogoPlaceholdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xogoPlaceholdKeyPressed
+    private void xogoMainPaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xogoMainPaneKeyPressed
         
         moveKeyDetection(evt);
-    }//GEN-LAST:event_xogoPlaceholdKeyPressed
+    }//GEN-LAST:event_xogoMainPaneKeyPressed
+
+    private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
+        // TODO add your handling code here:
+        configMenu.setVisible(true);
+    }//GEN-LAST:event_configButtonActionPerformed
 
     public void moveKeyDetection(KeyEvent evt) {
         /*!!!!!!!
@@ -332,16 +361,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton configButton;
+    private javax.swing.JFrame configMenu;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel level;
-    private javax.swing.JFrame menu;
     private javax.swing.JLabel next;
     private javax.swing.JPanel panelLevel;
     private javax.swing.JPanel panelNext;
     private javax.swing.JLabel panelScore;
+    private javax.swing.JToggleButton playButton;
     private javax.swing.JLabel score;
+    private javax.swing.JButton scoreButton;
+    private javax.swing.JPanel sizeL;
     private javax.swing.JPanel sizeR;
-    private javax.swing.JPanel xogoPlacehold;
+    private javax.swing.JPanel xogoMainPane;
     // End of variables declaration//GEN-END:variables
 }
