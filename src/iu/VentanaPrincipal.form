@@ -294,6 +294,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JToggleButton" name="playButton">
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="playButtonStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="scoreButton">
         </Component>

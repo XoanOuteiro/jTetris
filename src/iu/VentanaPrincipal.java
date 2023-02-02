@@ -16,21 +16,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     //Atributes
     public Xogo xogo;
     public Timer timer;
-    
+    boolean playing = false;
+
     //Construction method
     public VentanaPrincipal() {
-        
+
         //Swing init
         initComponents();
-        
+
         //Game init
-        xogo = new Xogo(xogoMainPane,this,10);
-        
-        attributeHyperset();      
-        
+        xogo = new Xogo(xogoMainPane, this, 10);
+
+        attributeHyperset();
+
         //Start ticker
         timerTicks();
-        timer.start();
+
     }
 
     private void attributeHyperset() {
@@ -47,9 +48,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         next.setBounds(next.getBounds());
         next.setBackground(next.getBackground());
         next.setBorder(next.getBorder());
-        panelLevel.setBounds( panelLevel.getBounds());
-        panelLevel.setBackground( panelLevel.getBackground());
-        panelLevel.setBorder( panelLevel.getBorder());
+        panelLevel.setBounds(panelLevel.getBounds());
+        panelLevel.setBackground(panelLevel.getBackground());
+        panelLevel.setBorder(panelLevel.getBorder());
         panelNext.setBounds(panelNext.getBounds());
         panelNext.setBackground(panelNext.getBackground());
         panelNext.setBorder(panelNext.getBorder());
@@ -65,8 +66,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         playButton.setFocusable(false);
         scoreButton.setFocusable(false);
         configMenu.setVisible(false);
-        configMenu.setSize(new Dimension(400,500));
-        configMenu.setMinimumSize(new Dimension(200,200));
+        configMenu.setSize(new Dimension(400, 500));
+        configMenu.setMinimumSize(new Dimension(200, 200));
     }
 
     /**
@@ -225,6 +226,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        playButton.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                playButtonStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout sizeLLayout = new javax.swing.GroupLayout(sizeL);
         sizeL.setLayout(sizeLLayout);
         sizeLLayout.setHorizontalGroup(
@@ -278,7 +285,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void xogoMainPaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xogoMainPaneKeyPressed
-        
+
         moveKeyDetection(evt);
     }//GEN-LAST:event_xogoMainPaneKeyPressed
 
@@ -287,30 +294,41 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         configMenu.setVisible(true);
     }//GEN-LAST:event_configButtonActionPerformed
 
+    private void playButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_playButtonStateChanged
+        if (playButton.isSelected()) {
+            timer.start();
+            playing = true;
+        } else {
+            timer.stop();
+            playing = false;
+        }
+    }//GEN-LAST:event_playButtonStateChanged
+
     public void moveKeyDetection(KeyEvent evt) {
         /*!!!!!!!
         
         Consider changing to xogoPlaceholKeyTyped(java.awt.event.KeyEvent evt);
         
         !!!!!!!*/
-        
-        if(evt.getKeyChar() == 'a'){
-            //Move left
-            xogo.moverFichaEsquerda();
-            
-        } else if(evt.getKeyChar() == 'd'){
-            //Move right
-            xogo.moverFichaDereita();
-            
-        } else if(evt.getKeyChar() == 'w'){
-            //Rotate 
-            xogo.rotarFicha();
-            
-        } else if(evt.getKeyChar() == 's'){
-            //Move down
-            xogo.moverFichaAbaixo();
+        if (playing) {
 
-            
+            if (evt.getKeyChar() == 'a') {
+                //Move left
+                xogo.moverFichaEsquerda();
+
+            } else if (evt.getKeyChar() == 'd') {
+                //Move right
+                xogo.moverFichaDereita();
+
+            } else if (evt.getKeyChar() == 'w') {
+                //Rotate 
+                xogo.rotarFicha();
+
+            } else if (evt.getKeyChar() == 's') {
+                //Move down
+                xogo.moverFichaAbaixo();
+
+            }
         }
     }
 
@@ -349,16 +367,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
     }
 
-    private void timerTicks(){
-         this.timer = new Timer(500, (ActionEvent e) ->{
-            
-             xogo.moverFichaAbaixo();
-             xogo.fichaActual.updateLabelPos();
-             
+    private void timerTicks() {
+        this.timer = new Timer(500, (ActionEvent e) -> {
+
+            xogo.moverFichaAbaixo();
+            xogo.fichaActual.updateLabelPos();
+
         });
     }
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configButton;
