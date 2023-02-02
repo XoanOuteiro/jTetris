@@ -157,20 +157,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         xogoMainPaneLayout.setVerticalGroup(
             xogoMainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
 
         panelScore.setText("0");
         panelScore.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        next.setFont(new java.awt.Font("Monocraft", 0, 12)); // NOI18N
+        next.setFont(new java.awt.Font("Microsoft New Tai Lue", 0, 12)); // NOI18N
         next.setText(" NEXT");
         next.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        level.setFont(new java.awt.Font("Monocraft", 0, 12)); // NOI18N
+        level.setFont(new java.awt.Font("Microsoft New Tai Lue", 0, 12)); // NOI18N
         level.setText("LEVEL ");
 
-        score.setFont(new java.awt.Font("Monocraft", 0, 12)); // NOI18N
+        score.setFont(new java.awt.Font("Microsoft New Tai Lue", 0, 12)); // NOI18N
         score.setText("SCORE");
 
         panelLevel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -304,7 +304,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(xogoMainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(xogoMainPane, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
                     .addComponent(sizeR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
