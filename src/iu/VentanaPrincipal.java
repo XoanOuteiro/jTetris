@@ -1,8 +1,9 @@
 package iu;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.util.HashSet;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import modelo.Xogo;
 
 /**
@@ -13,6 +14,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     //Atributes
     public Xogo xogo;
+    public Timer timer;
     
     //Construction method
     public VentanaPrincipal() {
@@ -24,6 +26,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         xogo = new Xogo(xogoPlacehold,this,10);
         
         attributeHyperset();
+        
+        //Start ticker
+        timerTicks();
+        timer.start();
     }
 
     private void attributeHyperset() {
@@ -226,11 +232,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             xogo.moverFichaDereita();
             
         } else if(evt.getKeyChar() == 'w'){
-            //Rotate
-                     
+            //Rotate         
+            
         } else if(evt.getKeyChar() == 's'){
             //Move down
             xogo.moverFichaAbaixo();
+
             
         }
     }
@@ -270,7 +277,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
     }
 
-        
+    private void timerTicks(){
+         this.timer = new Timer(500, (ActionEvent e) ->{
+            
+             xogo.moverFichaAbaixo();
+             xogo.fichaActual.updateLabelPos();
+             
+        });
+    }
 
     
 

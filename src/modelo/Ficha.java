@@ -22,6 +22,9 @@ public abstract class Ficha {
         for (int i = 0; i < 4; i++) {
             cadrados[i].setX(cadrados[i].getX() + Xogo.LADO_CADRADO);
         }
+        
+        //Update label
+        this.updateLabelPos();
     }
     
     public void moverEsquerda(){
@@ -33,8 +36,11 @@ public abstract class Ficha {
         
         //Apply change on all pieces:
         for (int i = 0; i < 4; i++) {
-            cadrados[i].setX(cadrados[i].getX() + Xogo.LADO_CADRADO);
+            cadrados[i].setX(cadrados[i].getX() - Xogo.LADO_CADRADO);
         }
+        
+        //Update label
+        this.updateLabelPos();
     }
     
     public void moverAbaixo(){
@@ -46,7 +52,16 @@ public abstract class Ficha {
         
         //Apply change on all pieces:
         for (int i = 0; i < 4; i++) {
-            cadrados[i].setX(cadrados[i].getY() - Xogo.LADO_CADRADO);
+            cadrados[i].setY(cadrados[i].getY() + Xogo.LADO_CADRADO);
+        }
+        
+        //Update label
+        this.updateLabelPos();
+    }
+    
+    public void updateLabelPos(){
+        for (int i = 0; i < 4; i++) {
+            this.cadrados[i].label_cadrado.setLocation(cadrados[i].getX(),cadrados[i].getY());
         }
     }
 }
