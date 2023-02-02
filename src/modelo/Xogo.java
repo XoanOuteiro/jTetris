@@ -51,5 +51,8 @@ public class Xogo{
         fichaActual.moverAbaixo();
     }
     
+    public void rotarFicha(){
+        
+    }
     
 }

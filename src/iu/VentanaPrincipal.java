@@ -232,7 +232,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             xogo.moverFichaDereita();
             
         } else if(evt.getKeyChar() == 'w'){
-            //Rotate         
+            //Rotate 
+            xogo.rotarFicha();
             
         } else if(evt.getKeyChar() == 's'){
             //Move down
