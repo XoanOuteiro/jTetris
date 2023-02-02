@@ -62,9 +62,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         score.setBorder(score.getBorder());
         panelScore.setHorizontalAlignment(SwingConstants.CENTER);
         panelScore.setVerticalAlignment(SwingConstants.CENTER);
+        
+        //Config Button
         configButton.setFocusable(false);
+        configButton.setOpaque(false);
+        configButton.setContentAreaFilled(true);
+        configButton.setBorderPainted(false);
+        
+        //Play button
         playButton.setFocusable(false);
-        scoreButton.setFocusable(false);
+        playButton.setOpaque(false);
+        playButton.setContentAreaFilled(true);
+        playButton.setBorderPainted(false);
+        
+        //help Button
+        helpButton.setFocusable(false);
+        helpButton.setOpaque(false);
+        helpButton.setContentAreaFilled(true);
+        helpButton.setBorderPainted(false);
+        
+        //Config Menu
         configMenu.setVisible(false);
         configMenu.setSize(new Dimension(400, 500));
         configMenu.setMinimumSize(new Dimension(200, 200));
@@ -92,7 +109,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         sizeL = new javax.swing.JPanel();
         configButton = new javax.swing.JButton();
         playButton = new javax.swing.JToggleButton();
-        scoreButton = new javax.swing.JButton();
+        helpButton = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 60)); // NOI18N
         jLabel1.setText("Tetris");
@@ -139,15 +156,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelScore.setText("0");
         panelScore.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        next.setFont(new java.awt.Font("Monocraft", 0, 12)); // NOI18N
         next.setText(" NEXT");
-        next.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         next.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        level.setText("  LEVEL ");
-        level.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        level.setFont(new java.awt.Font("Monocraft", 0, 12)); // NOI18N
+        level.setText("LEVEL ");
 
+        score.setFont(new java.awt.Font("Monocraft", 0, 12)); // NOI18N
         score.setText("SCORE");
-        score.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         panelLevel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -177,20 +194,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addContainerGap()
                             .addComponent(panelLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(sizeRLayout.createSequentialGroup()
-                            .addGap(38, 38, 38)
-                            .addComponent(level))
-                        .addGroup(sizeRLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(panelNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(sizeRLayout.createSequentialGroup()
-                            .addGap(35, 35, 35)
-                            .addComponent(score))
                         .addGroup(sizeRLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(panelScore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(sizeRLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(next)))
+                        .addGap(26, 26, 26)
+                        .addComponent(next))
+                    .addGroup(sizeRLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(level))
+                    .addGroup(sizeRLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(score)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -201,36 +218,43 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         sizeRLayout.setVerticalGroup(
             sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sizeRLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(103, 103, 103)
                 .addComponent(next)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(level)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(52, 52, 52)
                 .addComponent(score)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelScore, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         sizeRLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {panelLevel, panelNext});
 
         sizeRLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {level, next, score});
 
+        configButton.setBackground(new java.awt.Color(255, 255, 255));
+        configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iu/buttonSprites/configButton.png"))); // NOI18N
         configButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 configButtonActionPerformed(evt);
             }
         });
 
+        playButton.setBackground(new java.awt.Color(255, 255, 255));
+        playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iu/buttonSprites/playButton.png"))); // NOI18N
         playButton.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 playButtonStateChanged(evt);
             }
         });
+
+        helpButton.setBackground(new java.awt.Color(255, 255, 255));
+        helpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iu/buttonSprites/yellow_questionmark2.png"))); // NOI18N
 
         javax.swing.GroupLayout sizeLLayout = new javax.swing.GroupLayout(sizeL);
         sizeL.setLayout(sizeLLayout);
@@ -241,7 +265,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(sizeLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(configButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(playButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(scoreButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(helpButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         sizeLLayout.setVerticalGroup(
@@ -250,7 +274,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(configButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scoreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(helpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(playButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -380,6 +404,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configButton;
     private javax.swing.JFrame configMenu;
+    private javax.swing.JButton helpButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel level;
     private javax.swing.JLabel next;
@@ -388,7 +413,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel panelScore;
     private javax.swing.JToggleButton playButton;
     private javax.swing.JLabel score;
-    private javax.swing.JButton scoreButton;
     private javax.swing.JPanel sizeL;
     private javax.swing.JPanel sizeR;
     private javax.swing.JPanel xogoMainPane;
