@@ -53,6 +53,5 @@ public class Xogo{
     
     public void rotarFicha(){
         
-    }
-    
+    } 
 }
