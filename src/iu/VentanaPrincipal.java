@@ -1,5 +1,7 @@
 package iu;
 
+import java.awt.event.KeyEvent;
+import java.util.HashSet;
 import javax.swing.SwingConstants;
 import modelo.Xogo;
 
@@ -9,43 +11,49 @@ import modelo.Xogo;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaPrincipal
-     */
+    //Atributes
+    public Xogo xogo;
+    
+    //Construction method
     public VentanaPrincipal() {
+        
+        //Swing init
         initComponents();
         
-        Xogo xogo1 = new Xogo(xogoPlacehold,this,10);
+        //Game init
+        xogo = new Xogo(xogoPlacehold,this,10);
         
-        //Get attributes of shapeholder
+        attributeHyperset();
+    }
+
+    private void attributeHyperset() {
+        //Attribute hyperset
         sizeR.setVisible(true);
         xogoPlacehold.setBounds(xogoPlacehold.getBounds());
         xogoPlacehold.setFocusable(true);
         xogoPlacehold.setBackground(xogoPlacehold.getBackground());
         xogoPlacehold.setBorder(xogoPlacehold.getBorder());
         xogoPlacehold.setSize(xogoPlacehold.getPreferredSize());
-         level.setBounds(level.getBounds());
-         level.setBackground(level.getBackground());
-         level.setBorder(level.getBorder());
-         next.setBounds(next.getBounds());
-         next.setBackground(next.getBackground());
-         next.setBorder(next.getBorder());
-         panelLevel.setBounds( panelLevel.getBounds());
-         panelLevel.setBackground( panelLevel.getBackground());
-         panelLevel.setBorder( panelLevel.getBorder());
-         panelNext.setBounds(panelNext.getBounds());
-         panelNext.setBackground(panelNext.getBackground());
-         panelNext.setBorder(panelNext.getBorder());
-         panelScore.setBounds(panelScore.getBounds());
-         panelScore.setBackground(panelScore.getBackground());
-         panelScore.setBorder(panelScore.getBorder());
-         score.setBounds(score.getBounds());
-         score.setBackground(score.getBackground());
-         score.setBorder(score.getBorder());
-         panelScore.setHorizontalAlignment(SwingConstants.CENTER);
-         panelScore.setVerticalAlignment(SwingConstants.CENTER);
-
-        
+        level.setBounds(level.getBounds());
+        level.setBackground(level.getBackground());
+        level.setBorder(level.getBorder());
+        next.setBounds(next.getBounds());
+        next.setBackground(next.getBackground());
+        next.setBorder(next.getBorder());
+        panelLevel.setBounds( panelLevel.getBounds());
+        panelLevel.setBackground( panelLevel.getBackground());
+        panelLevel.setBorder( panelLevel.getBorder());
+        panelNext.setBounds(panelNext.getBounds());
+        panelNext.setBackground(panelNext.getBackground());
+        panelNext.setBorder(panelNext.getBorder());
+        panelScore.setBounds(panelScore.getBounds());
+        panelScore.setBackground(panelScore.getBackground());
+        panelScore.setBorder(panelScore.getBorder());
+        score.setBounds(score.getBounds());
+        score.setBackground(score.getBackground());
+        score.setBorder(score.getBorder());
+        panelScore.setHorizontalAlignment(SwingConstants.CENTER);
+        panelScore.setVerticalAlignment(SwingConstants.CENTER);
     }
 
     /**
@@ -198,28 +206,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void xogoPlaceholdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xogoPlaceholdKeyPressed
-        // TODO add your handling code here:
         
+        moveKeyDetection(evt);
+    }//GEN-LAST:event_xogoPlaceholdKeyPressed
+
+    public void moveKeyDetection(KeyEvent evt) {
         /*!!!!!!!
         
-            Consider changing to xogoPlaceholKeyTyped(java.awt.event.KeyEvent evt);
+        Consider changing to xogoPlaceholKeyTyped(java.awt.event.KeyEvent evt);
         
-          !!!!!!!*/
+        !!!!!!!*/
         
         if(evt.getKeyChar() == 'a'){
             //Move left
+            xogo.moverFichaEsquerda();
             
         } else if(evt.getKeyChar() == 'd'){
             //Move right
+            xogo.moverFichaDereita();
             
         } else if(evt.getKeyChar() == 'w'){
             //Rotate
-            
+                     
         } else if(evt.getKeyChar() == 's'){
             //Move down
+            xogo.moverFichaAbaixo();
             
         }
-    }//GEN-LAST:event_xogoPlaceholdKeyPressed
+    }
 
     /**
      * @param args the command line arguments

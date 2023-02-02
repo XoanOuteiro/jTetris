@@ -50,5 +50,16 @@ public class Cadrado {
     public int getY() {
         return y;
     }
+    
+    /**
+     * 
+     * @return int[2]
+     * 
+     * Returns the x and y position values of a square in the {x,y} format
+     */
+    public int[] getCoordenadas(){
+        int[] returnable = {this.x,this.y};
+        return returnable;
+    } 
 
 }

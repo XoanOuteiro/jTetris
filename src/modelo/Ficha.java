@@ -36,4 +36,17 @@ public abstract class Ficha {
             cadrados[i].setX(cadrados[i].getX() + Xogo.LADO_CADRADO);
         }
     }
+    
+    public void moverAbaixo(){
+        //Get coords of most right square:
+        
+        
+        //IF most right square isnt on border:
+        
+        
+        //Apply change on all pieces:
+        for (int i = 0; i < 4; i++) {
+            cadrados[i].setX(cadrados[i].getY() - Xogo.LADO_CADRADO);
+        }
+    }
 }

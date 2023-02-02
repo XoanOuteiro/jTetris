@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 public class Xogo{
     
     public static final int LADO_CADRADO = 20;
-    public final int MAX_X = 200;
-    public final int MAX_Y = 200;
+    public static final int MAX_X = 200;
+    public static final int MAX_Y = 200;
     public boolean pausa;
     public VentanaPrincipal ventanaPrincipal;
     public int numeroLineas;
@@ -32,4 +32,24 @@ public class Xogo{
             holder.add(fichaActual.cadrados[i].label_cadrado);
         }
     }
+    
+    //Getters & Setters
+    public Ficha getFichaActual() {
+        return fichaActual;
+    }
+    
+    //Mover
+    public void moverFichaDereita(){
+        fichaActual.moverDereita();
+    }
+    
+    public void moverFichaEsquerda(){
+        fichaActual.moverEsquerda();
+    }
+    
+    public void moverFichaAbaixo(){
+        fichaActual.moverAbaixo();
+    }
+    
+    
 }
