@@ -141,7 +141,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        xogoMainPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        xogoMainPane.setBackground(new java.awt.Color(204, 204, 204));
+        xogoMainPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
+        xogoMainPane.setForeground(new java.awt.Color(0, 0, 0));
         xogoMainPane.setPreferredSize(new java.awt.Dimension(240, 600));
         xogoMainPane.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -153,13 +155,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         xogoMainPane.setLayout(xogoMainPaneLayout);
         xogoMainPaneLayout.setHorizontalGroup(
             xogoMainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 238, Short.MAX_VALUE)
+            .addGap(0, 236, Short.MAX_VALUE)
         );
         xogoMainPaneLayout.setVerticalGroup(
             xogoMainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 607, Short.MAX_VALUE)
+            .addGap(0, 596, Short.MAX_VALUE)
         );
 
+        panelScore.setBackground(new java.awt.Color(153, 153, 153));
         panelScore.setText("0");
         panelScore.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -173,7 +176,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         score.setFont(new java.awt.Font("Microsoft New Tai Lue", 0, 12)); // NOI18N
         score.setText("SCORE");
 
-        panelLevel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelLevel.setBackground(new java.awt.Color(204, 204, 204));
+        panelLevel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
 
         javax.swing.GroupLayout panelLevelLayout = new javax.swing.GroupLayout(panelLevel);
         panelLevel.setLayout(panelLevelLayout);
@@ -186,7 +190,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGap(0, 102, Short.MAX_VALUE)
         );
 
-        panelNext.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelNext.setBackground(new java.awt.Color(204, 204, 204));
+        panelNext.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         panelNext.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panelNext.setLayout(new java.awt.BorderLayout());
 
@@ -196,15 +201,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sizeRLayout.createSequentialGroup()
                 .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(sizeRLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(panelLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(sizeRLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(panelNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(sizeRLayout.createSequentialGroup()
-                            .addContainerGap()
+                    .addGroup(sizeRLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(panelScore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(sizeRLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
@@ -237,7 +238,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(score)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelScore, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         sizeRLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {panelLevel, panelNext});
@@ -245,7 +246,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         sizeRLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {level, next, score});
 
         configButton.setBackground(new java.awt.Color(255, 255, 255));
-        configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton.png"))); // NOI18N
+        configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton_withButton_unclicked.png"))); // NOI18N
         configButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 configButtonActionPerformed(evt);
@@ -253,7 +254,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         playButton.setBackground(new java.awt.Color(255, 255, 255));
-        playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/playButton.png"))); // NOI18N
+        playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/playButton_withButton_unclicked.png"))); // NOI18N
         playButton.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 playButtonStateChanged(evt);
@@ -261,7 +262,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         helpButton.setBackground(new java.awt.Color(255, 255, 255));
-        helpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/yellow_questionmark2.png"))); // NOI18N
+        helpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/yellow_questionmark2_withButton.png"))); // NOI18N
 
         javax.swing.GroupLayout sizeLLayout = new javax.swing.GroupLayout(sizeL);
         sizeL.setLayout(sizeLLayout);
@@ -304,7 +305,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(xogoMainPane, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
+                    .addComponent(xogoMainPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sizeR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -322,16 +323,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
         // TODO add your handling code here:
+        configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton_withButton_clicked.png")));
         configMenu.setVisible(true);
+
+        
     }//GEN-LAST:event_configButtonActionPerformed
 
     private void playButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_playButtonStateChanged
         if (playButton.isSelected()) {
             timer.start();
             playing = true;
+            playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/playButton_withButton_clicked.png")));
+            
         } else {
             timer.stop();
             playing = false;
+            playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/playButton_withButton_unclicked.png")));
         }
     }//GEN-LAST:event_playButtonStateChanged
 
