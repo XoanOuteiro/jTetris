@@ -26,6 +26,6 @@ public class FichaCadrada extends Ficha{
     //Abstract extension
     @Override
     public void rotar(){
-        
+        //Squares do not rotate as their rotation will be the same as previous position
     }
 }
