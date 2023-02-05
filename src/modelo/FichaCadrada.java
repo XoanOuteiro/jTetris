@@ -22,4 +22,10 @@ public class FichaCadrada extends Ficha{
         this.cadrados[2] = new Cadrado(false,masterX,masterY + Xogo.LADO_CADRADO,tColor);
         this.cadrados[3] = new Cadrado(false,masterX + Xogo.LADO_CADRADO,masterY + Xogo.LADO_CADRADO,tColor);
     }
+    
+    //Abstract extension
+    @Override
+    public void rotar(){
+        
+    }
 }

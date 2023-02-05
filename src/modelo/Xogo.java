@@ -58,7 +58,7 @@ public class Xogo{
     }
     
     public void rotarFicha(){
-        
+        fichaActual.rotar();
     } 
     
     //Utility logic

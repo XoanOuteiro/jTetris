@@ -47,6 +47,8 @@ public abstract class Ficha {
         }
     }
     
+    public abstract void rotar();
+    
     //Get [pos] piece
     public Cadrado getMostDownSquare(){
         Cadrado currentLower = this.cadrados[0];
