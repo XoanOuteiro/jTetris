@@ -61,5 +61,6 @@ public class Cadrado {
         int[] returnable = {this.x,this.y};
         return returnable;
     } 
+    
 
 }

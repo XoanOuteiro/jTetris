@@ -36,11 +36,19 @@ public class FichaT extends Ficha {
     //Abstract extension
     @Override
     public void rotar() {
-        switch (curPos) {
+        switch (curPos) {   //On each we need to update X and Y per Square and set those as the labels coordinates
             case 0:
                 
+                this.cadrados[0].setX(this.cadrados[0].getX() - Xogo.LADO_CADRADO);
+                this.cadrados[0].setY(this.cadrados[0].getY() + Xogo.LADO_CADRADO);
+
+                this.cadrados[2].setX(this.cadrados[2].getX() + Xogo.LADO_CADRADO);
+                this.cadrados[2].setY(this.cadrados[2].getY() - Xogo.LADO_CADRADO);                
+
+                this.cadrados[3].setX(this.cadrados[3].getX() - Xogo.LADO_CADRADO);
+                this.cadrados[3].setY(this.cadrados[3].getY() + Xogo.LADO_CADRADO);
                 
-                
+                this.updateLabelPos();
                 this.curPos = 1;
                 break;
             case 1:
