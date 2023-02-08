@@ -49,24 +49,45 @@ public class FichaT extends Ficha {
                 this.cadrados[3].setY(this.cadrados[3].getY() + Xogo.LADO_CADRADO);
                 
                 this.updateLabelPos();
-                this.curPos = 1;
+                this.curPos ++;
                 break;
             case 1:
+                this.cadrados[0].setX(this.cadrados[0].getX() + Xogo.LADO_CADRADO);
+                this.cadrados[0].setY(this.cadrados[0].getY() - Xogo.LADO_CADRADO);
+
+                this.cadrados[2].setX(this.cadrados[2].getX() - Xogo.LADO_CADRADO);
+                this.cadrados[2].setY(this.cadrados[2].getY() + Xogo.LADO_CADRADO);                
+
+                this.cadrados[3].setX(this.cadrados[3].getX() - Xogo.LADO_CADRADO);
+                this.cadrados[3].setY(this.cadrados[3].getY() - Xogo.LADO_CADRADO);                
                 
-                
-                
-                this.curPos = 2;
+                this.updateLabelPos();
+                this.curPos ++;
                 break;
             case 2:
+                this.cadrados[0].setX(this.cadrados[0].getX() - Xogo.LADO_CADRADO);
+                this.cadrados[0].setY(this.cadrados[0].getY() + Xogo.LADO_CADRADO);
+
+                this.cadrados[2].setX(this.cadrados[2].getX() + Xogo.LADO_CADRADO);
+                this.cadrados[2].setY(this.cadrados[2].getY() - Xogo.LADO_CADRADO);                
+
+                this.cadrados[3].setX(this.cadrados[3].getX() + Xogo.LADO_CADRADO);
+                this.cadrados[3].setY(this.cadrados[3].getY() - Xogo.LADO_CADRADO);                
                 
-                
-                
-                this.curPos = 3;
+                this.updateLabelPos();
+                this.curPos ++;
                 break;
             case 3:
+                this.cadrados[0].setX(this.cadrados[0].getX() + Xogo.LADO_CADRADO);
+                this.cadrados[0].setY(this.cadrados[0].getY() - Xogo.LADO_CADRADO);
+
+                this.cadrados[2].setX(this.cadrados[2].getX() - Xogo.LADO_CADRADO);
+                this.cadrados[2].setY(this.cadrados[2].getY() + Xogo.LADO_CADRADO);                
+
+                this.cadrados[3].setX(this.cadrados[3].getX() + Xogo.LADO_CADRADO);
+                this.cadrados[3].setY(this.cadrados[3].getY() + Xogo.LADO_CADRADO);                
                 
-                
-                
+                this.updateLabelPos();
                 this.curPos = 0;
                 break;
             default:
