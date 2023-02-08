@@ -92,6 +92,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         configMenu.setVisible(false);
         configMenu.setSize(new Dimension(400, 500));
         configMenu.setMinimumSize(new Dimension(200, 200));
+        
+        //restart button
+        restartButton.setFocusable(false);
+        
+        //exit button
+        exitButton.setFocusable(false);
     }
 
     /**
@@ -104,10 +110,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         configMenu = new javax.swing.JFrame();
-        jLabel1 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
-        jLabel7 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        levelSlider = new javax.swing.JSlider();
+        stickyKeys = new javax.swing.JCheckBox();
+        levelLabel = new javax.swing.JLabel();
         jFrame1 = new javax.swing.JFrame();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -126,19 +131,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         configButton = new javax.swing.JButton();
         playButton = new javax.swing.JToggleButton();
         helpButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        restartButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 60)); // NOI18N
-
-        jLabel7.setText("Level");
-
-        jCheckBox2.setText("Sticky Keys");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        stickyKeys.setText("Sticky Keys");
+        stickyKeys.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                stickyKeysActionPerformed(evt);
             }
         });
+
+        levelLabel.setText("Level");
 
         javax.swing.GroupLayout configMenuLayout = new javax.swing.GroupLayout(configMenu.getContentPane());
         configMenu.getContentPane().setLayout(configMenuLayout);
@@ -147,29 +150,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(configMenuLayout.createSequentialGroup()
                 .addGroup(configMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(configMenuLayout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addGroup(configMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(configMenuLayout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(jLabel7))
+                        .addGap(96, 96, 96)
+                        .addComponent(levelSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(configMenuLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addComponent(jCheckBox2)))
+                        .addComponent(stickyKeys))
+                    .addGroup(configMenuLayout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(levelLabel)))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
         configMenuLayout.setVerticalGroup(
             configMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(configMenuLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(9, 9, 9)
-                .addComponent(jLabel7)
+                .addGap(27, 27, 27)
+                .addComponent(levelLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(levelSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
-                .addComponent(jCheckBox2)
+                .addComponent(stickyKeys)
                 .addContainerGap(145, Short.MAX_VALUE))
         );
 
@@ -354,14 +353,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        restartButton.setText("jButton1");
+        restartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                restartButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("jButton2");
+        exitButton.setText("jButton2");
 
         javax.swing.GroupLayout sizeLLayout = new javax.swing.GroupLayout(sizeL);
         sizeL.setLayout(sizeLLayout);
@@ -373,8 +372,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(configButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(playButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(helpButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(restartButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exitButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         sizeLLayout.setVerticalGroup(
@@ -385,9 +384,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(helpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(restartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(playButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -454,13 +453,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_helpButtonActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void stickyKeysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stickyKeysActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_stickyKeysActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void restartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restartButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_restartButtonActionPerformed
 
     public void moveKeyDetection(KeyEvent evt) {
         /*!!!!!!!
@@ -538,28 +537,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configButton;
     private javax.swing.JFrame configMenu;
+    private javax.swing.JButton exitButton;
     private javax.swing.JButton helpButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JFrame jFrame1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JLabel level;
+    private javax.swing.JLabel levelLabel;
+    private javax.swing.JSlider levelSlider;
     private javax.swing.JLabel next;
     private javax.swing.JPanel panelLevel;
     private javax.swing.JPanel panelNext;
     private javax.swing.JLabel panelScore;
     private javax.swing.JToggleButton playButton;
+    private javax.swing.JButton restartButton;
     private javax.swing.JLabel score;
     private javax.swing.JPanel sizeL;
     private javax.swing.JPanel sizeR;
+    private javax.swing.JCheckBox stickyKeys;
     private javax.swing.JPanel xogoMainPane;
     // End of variables declaration//GEN-END:variables
 }
