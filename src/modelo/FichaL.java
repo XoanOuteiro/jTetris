@@ -31,59 +31,80 @@ public class FichaL extends Ficha{
         switch (curPos) {   //On each we need to update X and Y per Square and set those as the labels coordinates
             case 0:
                 
-                this.cadrados[0].setX(this.cadrados[0].getX() - Xogo.LADO_CADRADO);
-                this.cadrados[0].setY(this.cadrados[0].getY() + Xogo.LADO_CADRADO);
-
-                this.cadrados[2].setX(this.cadrados[2].getX() + Xogo.LADO_CADRADO);
-                this.cadrados[2].setY(this.cadrados[2].getY() - Xogo.LADO_CADRADO);                
-
-                this.cadrados[3].setX(this.cadrados[3].getX() );
-                this.cadrados[3].setY(this.cadrados[3].getY() - (Xogo.LADO_CADRADO*2));
+                rotatePos0to1();
                 
                 this.updateLabelPos();
                 this.curPos ++;
                 break;
+                
             case 1:
-                this.cadrados[0].setX(this.cadrados[0].getX() + Xogo.LADO_CADRADO);
-                this.cadrados[0].setY(this.cadrados[0].getY() + Xogo.LADO_CADRADO);
-
-                this.cadrados[2].setX(this.cadrados[2].getX() - Xogo.LADO_CADRADO);
-                this.cadrados[2].setY(this.cadrados[2].getY() - Xogo.LADO_CADRADO);                
-
-                this.cadrados[3].setX(this.cadrados[3].getX() - (Xogo.LADO_CADRADO*2));
-                this.cadrados[3].setY(this.cadrados[3].getY());                
+                
+                rotatePos1to2();                
                 
                 this.updateLabelPos();
                 this.curPos ++;
                 break;
+                
             case 2:
-                this.cadrados[0].setX(this.cadrados[0].getX() + Xogo.LADO_CADRADO);
-                this.cadrados[0].setY(this.cadrados[0].getY() - Xogo.LADO_CADRADO);
-
-                this.cadrados[2].setX(this.cadrados[2].getX() - Xogo.LADO_CADRADO);
-                this.cadrados[2].setY(this.cadrados[2].getY() + Xogo.LADO_CADRADO);                
-
-                this.cadrados[3].setX(this.cadrados[3].getX() );
-                this.cadrados[3].setY(this.cadrados[3].getY() + (Xogo.LADO_CADRADO*2));                
+                rotatePos2to3();                
                 
                 this.updateLabelPos();
                 this.curPos ++;
                 break;
+                
             case 3:
-                this.cadrados[0].setX(this.cadrados[0].getX() - Xogo.LADO_CADRADO);
-                this.cadrados[0].setY(this.cadrados[0].getY() - Xogo.LADO_CADRADO);
-
-                this.cadrados[2].setX(this.cadrados[2].getX() + Xogo.LADO_CADRADO);
-                this.cadrados[2].setY(this.cadrados[2].getY() + Xogo.LADO_CADRADO);                
-
-                this.cadrados[3].setX(this.cadrados[3].getX() + (Xogo.LADO_CADRADO*2));
-                this.cadrados[3].setY(this.cadrados[3].getY() );                
+                rotatePos3to0();                
                 
                 this.updateLabelPos();
                 this.curPos = 0;
                 break;
+                
             default:
                 break;
         }
+    }
+
+    private void rotatePos3to0() {
+        this.cadrados[0].setX(this.cadrados[0].getX() - Xogo.LADO_CADRADO);
+        this.cadrados[0].setY(this.cadrados[0].getY() - Xogo.LADO_CADRADO);
+        
+        this.cadrados[2].setX(this.cadrados[2].getX() + Xogo.LADO_CADRADO);
+        this.cadrados[2].setY(this.cadrados[2].getY() + Xogo.LADO_CADRADO);
+        
+        this.cadrados[3].setX(this.cadrados[3].getX() + (Xogo.LADO_CADRADO*2));
+        this.cadrados[3].setY(this.cadrados[3].getY() );
+    }
+
+    private void rotatePos2to3() {
+        this.cadrados[0].setX(this.cadrados[0].getX() + Xogo.LADO_CADRADO);
+        this.cadrados[0].setY(this.cadrados[0].getY() - Xogo.LADO_CADRADO);
+        
+        this.cadrados[2].setX(this.cadrados[2].getX() - Xogo.LADO_CADRADO);
+        this.cadrados[2].setY(this.cadrados[2].getY() + Xogo.LADO_CADRADO);
+        
+        this.cadrados[3].setX(this.cadrados[3].getX() );
+        this.cadrados[3].setY(this.cadrados[3].getY() + (Xogo.LADO_CADRADO*2));
+    }
+
+    private void rotatePos1to2() {
+        this.cadrados[0].setX(this.cadrados[0].getX() + Xogo.LADO_CADRADO);
+        this.cadrados[0].setY(this.cadrados[0].getY() + Xogo.LADO_CADRADO);
+        
+        this.cadrados[2].setX(this.cadrados[2].getX() - Xogo.LADO_CADRADO);
+        this.cadrados[2].setY(this.cadrados[2].getY() - Xogo.LADO_CADRADO);
+        
+        this.cadrados[3].setX(this.cadrados[3].getX() - (Xogo.LADO_CADRADO*2));
+        this.cadrados[3].setY(this.cadrados[3].getY());
+    }
+
+    private void rotatePos0to1() {
+        this.cadrados[0].setX(this.cadrados[0].getX() - Xogo.LADO_CADRADO);
+        this.cadrados[0].setY(this.cadrados[0].getY() + Xogo.LADO_CADRADO);
+        
+        this.cadrados[2].setX(this.cadrados[2].getX() + Xogo.LADO_CADRADO);
+        this.cadrados[2].setY(this.cadrados[2].getY() - Xogo.LADO_CADRADO);
+        
+        this.cadrados[3].setX(this.cadrados[3].getX() );
+        this.cadrados[3].setY(this.cadrados[3].getY() - (Xogo.LADO_CADRADO*2));
     }
 }
