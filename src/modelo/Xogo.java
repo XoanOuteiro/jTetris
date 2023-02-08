@@ -27,7 +27,7 @@ public class Xogo{
         this.ventanaPrincipal = ventana;
         
         //TEST
-        this.fichaActual = new FichaT(60,60);
+        this.fichaActual = new FichaBarra(60,60);
         for (int i = 0; i < 4; i++) {
             holder.add(fichaActual.cadrados[i].label_cadrado);
         }
