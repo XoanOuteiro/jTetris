@@ -113,7 +113,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         levelSlider = new javax.swing.JSlider();
         stickyKeys = new javax.swing.JCheckBox();
         levelLabel = new javax.swing.JLabel();
-        jFrame1 = new javax.swing.JFrame();
+        helpMenu = new javax.swing.JFrame();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -134,6 +134,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         restartButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
 
+        levelSlider.setMaximum(25);
+        levelSlider.setPaintTicks(true);
+
         stickyKeys.setText("Sticky Keys");
         stickyKeys.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,15 +153,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(configMenuLayout.createSequentialGroup()
                 .addGroup(configMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(configMenuLayout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(levelSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(configMenuLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(stickyKeys))
                     .addGroup(configMenuLayout.createSequentialGroup()
                         .addGap(179, 179, 179)
-                        .addComponent(levelLabel)))
-                .addContainerGap(104, Short.MAX_VALUE))
+                        .addComponent(levelLabel))
+                    .addGroup(configMenuLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(levelSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         configMenuLayout.setVerticalGroup(
             configMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +172,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(levelSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(stickyKeys)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jLabel2.setText("W / ^: Rotate");
@@ -182,39 +185,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel6.setText("Esc: Menu");
 
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrame1Layout.createSequentialGroup()
+        javax.swing.GroupLayout helpMenuLayout = new javax.swing.GroupLayout(helpMenu.getContentPane());
+        helpMenu.getContentPane().setLayout(helpMenuLayout);
+        helpMenuLayout.setHorizontalGroup(
+            helpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(helpMenuLayout.createSequentialGroup()
                 .addGap(144, 144, 144)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, helpMenuLayout.createSequentialGroup()
                 .addContainerGap(91, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jFrame1Layout.createSequentialGroup()
+                .addGroup(helpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(helpMenuLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jFrame1Layout.createSequentialGroup()
+                    .addGroup(helpMenuLayout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(jLabel4)))
                 .addGap(17, 17, 17))
-            .addGroup(jFrame1Layout.createSequentialGroup()
+            .addGroup(helpMenuLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrame1Layout.createSequentialGroup()
+        helpMenuLayout.setVerticalGroup(
+            helpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(helpMenuLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(helpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -539,7 +542,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JFrame configMenu;
     private javax.swing.JButton exitButton;
     private javax.swing.JButton helpButton;
-    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame helpMenu;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

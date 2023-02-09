@@ -10,10 +10,6 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                          <Component id="levelSlider" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="stickyKeys" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -21,8 +17,12 @@
                           <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                           <Component id="levelLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                          <Component id="levelSlider" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="104" max="32767" attributes="0"/>
+                  <EmptySpace pref="107" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -35,13 +35,17 @@
                   <Component id="levelSlider" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   <Component id="stickyKeys" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="145" max="32767" attributes="0"/>
+                  <EmptySpace pref="137" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JSlider" name="levelSlider">
+          <Properties>
+            <Property name="maximum" type="int" value="25"/>
+            <Property name="paintTicks" type="boolean" value="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="stickyKeys">
           <Properties>
@@ -58,7 +62,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JFrame" name="jFrame1">
+    <Container class="javax.swing.JFrame" name="helpMenu">
 
       <Layout>
         <DimensionLayout dim="0">
