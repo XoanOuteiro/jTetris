@@ -11,6 +11,8 @@ public abstract class Ficha {
     public Cadrado[] cadrados = new Cadrado[4];
     
     //Common methods
+    
+    //Movement
     public void moverDereita(){
 
         for (int i = 0; i < 4; i++) {
@@ -41,13 +43,17 @@ public abstract class Ficha {
         this.updateLabelPos();
     }
     
+    public abstract void rotar();
+    
+    //Graphical updates
+    /**
+     * Updates all labels to their respective X and Y positions of square
+     */ 
     public void updateLabelPos(){
         for (int i = 0; i < 4; i++) {
             this.cadrados[i].label_cadrado.setLocation(this.cadrados[i].getX(),this.cadrados[i].getY());
         }
     }
-    
-    public abstract void rotar();
     
     //Get [pos] piece
     public Cadrado getMostDownSquare(){
@@ -87,4 +93,26 @@ public abstract class Ficha {
         return currentGreatest;
     }
 
+    //Floor checking and Bounding
+    
+    /**
+     * Checks if the "MostDownSquare" has reached the
+     * lower limit of the game area
+     * 
+     * @return boolean 
+     * 
+     * true if has collided, false otherwise
+     */
+    public boolean isCollideWithLowerLimit(){
+        if(this.getMostDownSquare().y >= Xogo.MAX_Y){   //Remember Y increments as pieces descend
+            
+            return true;
+            
+        } else {
+            
+            return false;
+            
+        }
+    }
+    
 }
