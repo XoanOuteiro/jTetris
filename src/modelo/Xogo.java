@@ -1,6 +1,8 @@
 package modelo;
 
 import iu.VentanaPrincipal;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JPanel;
 
 /**
@@ -18,6 +20,8 @@ public class Xogo{
     public int rowAM ;
     public int colAM ;
     public int celSiz ;//= to lado¿
+    public ArrayList <Cadrado> suelo;
+    public Iterator <Cadrado> it;
     
     public Ficha fichaActual;
             
@@ -26,8 +30,12 @@ public class Xogo{
         //Match styles
         this.ventanaPrincipal = ventana;
         
+        //Suelo
+        this.suelo = new ArrayList();
+        this.it = suelo.iterator();
+        
         //TEST
-        this.fichaActual = new FichaBarra(80,60);
+        this.fichaActual = new FichaT(120,60);
         for (int i = 0; i < 4; i++) {
             holder.add(fichaActual.cadrados[i].label_cadrado);
         }
