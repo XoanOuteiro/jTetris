@@ -2,6 +2,7 @@ package modelo;
 
 import iu.VentanaPrincipal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Random;
 import javax.swing.JPanel;
@@ -35,7 +36,6 @@ public class Xogo {
 
         //Suelo
         this.floor = new ArrayList();
-        this.it = floor.iterator();
 
         //TEST
         this.createNewRandomFicha();
@@ -61,17 +61,22 @@ public class Xogo {
     }
 
     public void moverFichaAbaixo() {
-        if (ePosicionValida(fichaActual.getMostDownSquare().getX(), fichaActual.getMostDownSquare().getY() + LADO_CADRADO)) {
-            fichaActual.moverAbaixo();
-        }
+        
 
-        if (fichaActual.isCollideWithLowerLimit()) {
+        if ( collidingCurrentToFloor() || fichaActual.isCollideWithLowerLimit() ) {
             /*
             * Each time the piece is moved down (always using this method by user or and timer)
             * the routine is called and asks if the piece has reached the lower limit, if it has the
             * consequent method is called fusing the pieces squares to the floor and then killing its entity
              */
             this.fuseCurrentToFloor();
+            
+        } else {
+            
+            if (ePosicionValida(fichaActual.getMostDownSquare().getX(), fichaActual.getMostDownSquare().getY() + LADO_CADRADO)) {
+                fichaActual.moverAbaixo();
+            }
+            
         }
     }
 
@@ -124,7 +129,34 @@ public class Xogo {
             this.floor.add(this.fichaActual.cadrados[i]);
         }
 
-        this.createNewRandomFicha();
+        this.createNewRandomFicha();    //Consider changing this call to other position
+    }
+    
+    public boolean collidingCurrentToFloor(){
+        this.it = floor.iterator();
+        
+        
+        for (int i = 0; i < 4; i++) {
+       
+            while (it.hasNext()){
+                
+                //System.out.println("[" + Arrays.toString(it.next().getCoordenadas()) + " / " + Arrays.toString(compareArray) + "]");
+                //System.out.println(it.next().getY() + "/" + (this.fichaActual.cadrados[i].getY() + LADO_CADRADO));   
+                
+                Cadrado j = it.next();
+                        
+                if(j.getY() <= this.fichaActual.cadrados[i].getY() + (LADO_CADRADO*2) && j.getX() == this.fichaActual.cadrados[i].getX()){
+                    
+                    System.out.println("Checked");
+                    
+                    return true;
+                    
+                }        
+            }
+        }
+        
+        return false;
+        
     }
 
     //Killer methods and restarts
