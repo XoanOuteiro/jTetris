@@ -114,7 +114,17 @@ public class Xogo {
         }
 
         //Is occupied?
-        //!!!TBI!!!
+        this.it = floor.iterator();
+        unOccupied = true;
+        
+        while(it.hasNext()){
+            Cadrado j = it.next();
+            
+            if(x == j.getX() && y == j.getY()){
+                unOccupied = false;
+            }
+        }
+        
         //Final operand
         if (clampedOnX && clampedOnY && unOccupied) {
             return true;
@@ -144,9 +154,7 @@ public class Xogo {
                 
                 //System.out.println("[" + Arrays.toString(it.next().getCoordenadas()) + " / " + Arrays.toString(compareArray) + "]");
                 //System.out.println(it.next().getY() + "/" + (this.fichaActual.cadrados[i].getY() + LADO_CADRADO));   
-                
-                
-                        
+                   
                 if(j.getY() == this.fichaActual.cadrados[i].getY() + LADO_CADRADO && j.getX() == this.fichaActual.cadrados[i].getX()){
                     
                     System.out.println("Checked");
