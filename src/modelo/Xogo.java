@@ -136,16 +136,18 @@ public class Xogo {
         this.it = floor.iterator();
         
         
-        for (int i = 0; i < 4; i++) {
-       
-            while (it.hasNext()){
+        while (it.hasNext()) {
+            
+            Cadrado j = it.next();
+            
+            for (int i = 0; i < 4; i++){
                 
                 //System.out.println("[" + Arrays.toString(it.next().getCoordenadas()) + " / " + Arrays.toString(compareArray) + "]");
                 //System.out.println(it.next().getY() + "/" + (this.fichaActual.cadrados[i].getY() + LADO_CADRADO));   
                 
-                Cadrado j = it.next();
+                
                         
-                if(j.getY() <= this.fichaActual.cadrados[i].getY() + (LADO_CADRADO*2) && j.getX() == this.fichaActual.cadrados[i].getX()){
+                if(j.getY() == this.fichaActual.cadrados[i].getY() + LADO_CADRADO && j.getX() == this.fichaActual.cadrados[i].getX()){
                     
                     System.out.println("Checked");
                     
