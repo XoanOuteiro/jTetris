@@ -151,13 +151,8 @@ public class Xogo {
             Cadrado j = it.next();
             
             for (int i = 0; i < 4; i++){
-                
-                //System.out.println("[" + Arrays.toString(it.next().getCoordenadas()) + " / " + Arrays.toString(compareArray) + "]");
-                //System.out.println(it.next().getY() + "/" + (this.fichaActual.cadrados[i].getY() + LADO_CADRADO));   
-                   
+
                 if(j.getY() == this.fichaActual.cadrados[i].getY() + LADO_CADRADO && j.getX() == this.fichaActual.cadrados[i].getX()){
-                    
-                    System.out.println("Checked");
                     
                     return true;
                     
