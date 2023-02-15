@@ -1,5 +1,5 @@
-#jTetris
-##by @XoanOuteiro and @Samuyo
+# jTetris
+## by @XoanOuteiro and @Samuyo
 
 Java implementation of Tetris using Swing interfaces.
 
