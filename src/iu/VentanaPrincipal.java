@@ -19,6 +19,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public Timer gameTimeTimer;
     boolean playing = false;
     int seconds = 0;
+    boolean stickyKeysb = false;
 
     //Construction method
     public VentanaPrincipal() {
@@ -142,6 +143,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         levelSlider.setPaintTicks(true);
 
         stickyKeys.setText("Sticky Keys");
+        stickyKeys.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                stickyKeysStateChanged(evt);
+            }
+        });
         stickyKeys.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stickyKeysActionPerformed(evt);
@@ -239,6 +245,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         xogoMainPane.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 xogoMainPaneKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                xogoMainPaneKeyTyped(evt);
             }
         });
 
@@ -515,14 +524,41 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_configButtonStateChanged
 
-    public void moveKeyDetection(KeyEvent evt) {
-        /*!!!!!!!
-        
-        Consider changing to xogoPlaceholKeyTyped(java.awt.event.KeyEvent evt);
-        
-        !!!!!!!*/
-        if (playing) {
+    private void stickyKeysStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_stickyKeysStateChanged
+        if(stickyKeys.isSelected()){
+            stickyKeysb = true;
+        }else{
+            stickyKeysb = false;
+        }
+    }//GEN-LAST:event_stickyKeysStateChanged
 
+    private void xogoMainPaneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_xogoMainPaneKeyTyped
+        if (playing && !stickyKeysb) {
+            
+            if (evt.getKeyChar() == 'a') {
+                //Move left
+                xogo.moverFichaEsquerda();
+
+            } else if (evt.getKeyChar() == 'd') {
+                //Move right
+                xogo.moverFichaDereita();
+
+            } else if (evt.getKeyChar() == 'w') {
+                //Rotate 
+                xogo.rotarFicha();
+
+            } else if (evt.getKeyChar() == 's') {
+                //Move down
+                xogo.moverFichaAbaixo();
+
+            }
+        }
+    }//GEN-LAST:event_xogoMainPaneKeyTyped
+
+    public void moveKeyDetection(KeyEvent evt) {
+
+        if (playing && stickyKeysb) {
+            
             if (evt.getKeyChar() == 'a') {
                 //Move left
                 xogo.moverFichaEsquerda();
