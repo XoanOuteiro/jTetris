@@ -68,6 +68,14 @@ public abstract class Ficha {
         return currentLower;
     }
     
+    /**
+     * 
+     * @return Cadrado
+     * 
+     * Iterates through ficha,
+     * finding the squared with the most
+     * negative X value
+     */
     public Cadrado getMostRightSquare(){
         Cadrado currentLesser = this.cadrados[0];
                 
@@ -81,6 +89,14 @@ public abstract class Ficha {
         return currentLesser;
     }
     
+        /**
+     * 
+     * @return Cadrado
+     * 
+     * Iterates through ficha,
+     * finding the squared with the most
+     * positive X value
+     */
     public Cadrado getMostLeftSquare(){
         Cadrado currentGreatest = this.cadrados[0];
                 

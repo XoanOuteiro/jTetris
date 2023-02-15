@@ -134,6 +134,12 @@ public class Xogo {
     }
 
     //Floor methods
+    /**
+     * Converts each current piece of
+     * fichaActual into a floor piece,
+     * the calls for creation of a new 
+     * fichaActual.
+     */
     public void fuseCurrentToFloor() {
         for (int i = 0; i < 4; i++) {
             this.floor.add(this.fichaActual.cadrados[i]);
@@ -142,19 +148,30 @@ public class Xogo {
         this.createNewRandomFicha();    //Consider changing this call to other position
     }
     
+    /**
+     * 
+     * @return 
+     * 
+     * Checks if the piece will collide 
+     * onto a floor piece
+     * within the next tick
+     */
     public boolean collidingCurrentToFloor(){
+        //Build an iterator for floor collection
         this.it = floor.iterator();
         
         
         while (it.hasNext()) {
             
+            //Define the square to compare
             Cadrado j = it.next();
             
+            //Compare to Y+l and X in order to check collisions
             for (int i = 0; i < 4; i++){
 
                 if(j.getY() == this.fichaActual.cadrados[i].getY() + LADO_CADRADO && j.getX() == this.fichaActual.cadrados[i].getX()){
                     
-                    return true;
+                    return true;    //Condition to floor fusion
                     
                 }        
             }
@@ -212,7 +229,7 @@ public class Xogo {
     }
     
     public void killAll(){
-
+        
         this.fichaActual = null;
         this.floor = null;
     }
