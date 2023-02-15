@@ -7,4 +7,4 @@ This repository is public in hopes that others trying the same or similar projec
 
 ## -!!!->About the usage of this project:
 
-Feel free to clone or download this project aswell as using code snippets from it, if you do find any problems with the code [please open an issue](/issues) that briefly explains under which circumstances the problem ocurred.
+Feel free to clone or download this project aswell as using code snippets from it, if you do find any problems with the code [please open an issue](https://github.com/XoanOuteiro/jTetris/issues) that briefly explains under which circumstances the problem ocurred.
