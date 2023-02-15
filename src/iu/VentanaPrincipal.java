@@ -132,11 +132,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         timeLabel = new javax.swing.JLabel();
         panelScore1 = new javax.swing.JLabel();
         sizeL = new javax.swing.JPanel();
-        configButton = new javax.swing.JButton();
         playButton = new javax.swing.JToggleButton();
         helpButton = new javax.swing.JButton();
         restartButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
+        configButton = new javax.swing.JToggleButton();
 
         levelSlider.setMaximum(25);
         levelSlider.setPaintTicks(true);
@@ -359,14 +359,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         sizeRLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {level, next, score});
 
-        configButton.setBackground(new java.awt.Color(255, 255, 255));
-        configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton_withButton_unclicked.png"))); // NOI18N
-        configButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                configButtonActionPerformed(evt);
-            }
-        });
-
         playButton.setBackground(new java.awt.Color(255, 255, 255));
         playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/playButton_withButton_unclicked.png"))); // NOI18N
         playButton.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -397,6 +389,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        configButton.setBackground(new java.awt.Color(255, 255, 255));
+        configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton_withButton_unclicked.png"))); // NOI18N
+        configButton.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                configButtonStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout sizeLLayout = new javax.swing.GroupLayout(sizeL);
         sizeL.setLayout(sizeLLayout);
         sizeLLayout.setHorizontalGroup(
@@ -404,11 +404,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(sizeLLayout.createSequentialGroup()
                 .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(sizeLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(configButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(playButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(helpButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(restartButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(exitButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(exitButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(configButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         sizeLLayout.setVerticalGroup(
@@ -463,14 +463,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         moveKeyDetection(evt);
     }//GEN-LAST:event_xogoMainPaneKeyPressed
 
-    private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
-        // TODO add your handling code here:
-        configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton_withButton_clicked.png")));
-        configMenu.setVisible(true);
-
-        
-    }//GEN-LAST:event_configButtonActionPerformed
-
     private void playButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_playButtonStateChanged
         if (playButton.isSelected()) {
             gameSpeedTimer.start();
@@ -504,6 +496,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         this.dispose();
     }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void configButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_configButtonStateChanged
+        if(configButton.isSelected()){
+            
+            configMenu.setVisible(true);
+            configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton_withButton_clicked.png")));
+            
+            if(playButton.isSelected()){
+                playButton.doClick();
+            }
+            
+        }else{
+            
+            configMenu.setVisible(false);
+            configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton_withButton_unclicked.png")));
+            
+        }
+    }//GEN-LAST:event_configButtonStateChanged
 
     public void moveKeyDetection(KeyEvent evt) {
         /*!!!!!!!
@@ -588,7 +598,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton configButton;
+    private javax.swing.JToggleButton configButton;
     private javax.swing.JFrame configMenu;
     private javax.swing.JButton exitButton;
     private javax.swing.JButton helpButton;
