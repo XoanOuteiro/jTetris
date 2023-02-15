@@ -15,8 +15,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     //Atributes
     public Xogo xogo;
-    public Timer timer;
+    public Timer gameSpeedTimer;
+    public Timer gameTimeTimer;
     boolean playing = false;
+    int seconds = 0;
 
     //Construction method
     public VentanaPrincipal() {
@@ -60,11 +62,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelNext.setBackground(panelNext.getBackground());
         panelNext.setBorder(panelNext.getBorder());
         
-        panelScore.setBounds(panelScore.getBounds());
-        panelScore.setBackground(panelScore.getBackground());
-        panelScore.setBorder(panelScore.getBorder());
-        panelScore.setHorizontalAlignment(SwingConstants.CENTER);
-        panelScore.setVerticalAlignment(SwingConstants.CENTER);
+        timeField.setBounds(timeField.getBounds());
+        timeField.setBackground(timeField.getBackground());
+        timeField.setBorder(timeField.getBorder());
+        timeField.setHorizontalAlignment(SwingConstants.CENTER);
+        timeField.setVerticalAlignment(SwingConstants.CENTER);
         
         score.setBounds(score.getBounds());
         score.setBackground(score.getBackground());
@@ -121,12 +123,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         xogoMainPane = new javax.swing.JPanel();
         sizeR = new javax.swing.JPanel();
-        panelScore = new javax.swing.JLabel();
+        timeField = new javax.swing.JLabel();
         next = new javax.swing.JLabel();
         level = new javax.swing.JLabel();
         score = new javax.swing.JLabel();
         panelLevel = new javax.swing.JPanel();
         panelNext = new javax.swing.JPanel();
+        timeLabel = new javax.swing.JLabel();
+        panelScore1 = new javax.swing.JLabel();
         sizeL = new javax.swing.JPanel();
         configButton = new javax.swing.JButton();
         playButton = new javax.swing.JToggleButton();
@@ -249,9 +253,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGap(0, 596, Short.MAX_VALUE)
         );
 
-        panelScore.setBackground(new java.awt.Color(153, 153, 153));
-        panelScore.setText("0");
-        panelScore.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        timeField.setBackground(new java.awt.Color(153, 153, 153));
+        timeField.setText("0");
+        timeField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         next.setFont(new java.awt.Font("Microsoft New Tai Lue", 0, 12)); // NOI18N
         next.setText(" NEXT");
@@ -282,6 +286,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelNext.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         panelNext.setLayout(new java.awt.BorderLayout());
 
+        timeLabel.setText("Time");
+
+        panelScore1.setBackground(new java.awt.Color(153, 153, 153));
+        panelScore1.setText("0");
+        panelScore1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout sizeRLayout = new javax.swing.GroupLayout(sizeR);
         sizeR.setLayout(sizeRLayout);
         sizeRLayout.setHorizontalGroup(
@@ -290,20 +300,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(sizeRLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panelLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelScore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(sizeRLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(next))
+                            .addComponent(panelNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(sizeRLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(level))
                     .addGroup(sizeRLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(score)))
+                        .addComponent(score))
+                    .addGroup(sizeRLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(next))
+                    .addGroup(sizeRLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(timeField, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(sizeRLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(timeLabel)))
                 .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(sizeRLayout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(panelScore1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         sizeRLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {panelLevel, panelNext});
@@ -313,7 +333,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         sizeRLayout.setVerticalGroup(
             sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sizeRLayout.createSequentialGroup()
-                .addGap(103, 103, 103)
+                .addContainerGap()
+                .addComponent(timeLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(timeField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
                 .addComponent(next)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -323,9 +347,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(panelLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(score)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelScore, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
+            .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sizeRLayout.createSequentialGroup()
+                    .addContainerGap(483, Short.MAX_VALUE)
+                    .addComponent(panelScore1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(73, 73, 73)))
         );
 
         sizeRLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {panelLevel, panelNext});
@@ -446,12 +473,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void playButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_playButtonStateChanged
         if (playButton.isSelected()) {
-            timer.start();
+            gameSpeedTimer.start();
+            gameTimeTimer.start();
             playing = true;
             playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/playButton_withButton_clicked.png")));
             
         } else {
-            timer.stop();
+            gameSpeedTimer.stop();
+            gameTimeTimer.stop();
             playing = false;
             playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/playButton_withButton_unclicked.png")));
         }
@@ -540,10 +569,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     private void timerTicks() {
-        this.timer = new Timer(500, (ActionEvent e) -> {
+        
+        
+        this.gameSpeedTimer = new Timer(500, (ActionEvent e) -> {
 
             xogo.moverFichaAbaixo();
             xogo.fichaActual.updateLabelPos();
+
+        });
+        
+        this.gameTimeTimer = new Timer(1000, (ActionEvent e) -> {
+            
+            seconds++;
+            this.timeField.setText(Integer.toString(seconds));
 
         });
     }
@@ -566,13 +604,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel next;
     private javax.swing.JPanel panelLevel;
     private javax.swing.JPanel panelNext;
-    private javax.swing.JLabel panelScore;
+    private javax.swing.JLabel panelScore1;
     private javax.swing.JToggleButton playButton;
     private javax.swing.JButton restartButton;
     private javax.swing.JLabel score;
     private javax.swing.JPanel sizeL;
     private javax.swing.JPanel sizeR;
     private javax.swing.JCheckBox stickyKeys;
+    private javax.swing.JLabel timeField;
+    private javax.swing.JLabel timeLabel;
     private javax.swing.JPanel xogoMainPane;
     // End of variables declaration//GEN-END:variables
 }
