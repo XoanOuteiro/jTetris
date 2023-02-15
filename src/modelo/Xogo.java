@@ -210,4 +210,10 @@ public class Xogo {
                 break;
         }
     }
+    
+    public void killAll(){
+
+        this.fichaActual = null;
+        this.floor = null;
+    }
 }

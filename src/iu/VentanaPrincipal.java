@@ -364,6 +364,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         exitButton.setText("jButton2");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout sizeLLayout = new javax.swing.GroupLayout(sizeL);
         sizeL.setLayout(sizeLLayout);
@@ -461,8 +466,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_stickyKeysActionPerformed
 
     private void restartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restartButtonActionPerformed
-        // TODO add your handling code here:
+        
+        this.xogo.killAll();
+        this.xogo = new Xogo(xogoMainPane, this, 10);
+        
     }//GEN-LAST:event_restartButtonActionPerformed
+
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     public void moveKeyDetection(KeyEvent evt) {
         /*!!!!!!!
