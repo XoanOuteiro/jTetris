@@ -1,4 +1,7 @@
-This is the repository for @XoanOuteiro's and @Samuyo's Java implementation of jTetris, a Java version of Tetris.
+#jTetris
+##by @XoanOuteiro and @Samuyo
+
+Java implementation of Tetris using Swing interfaces.
 
 This repository is public in hopes that others trying the same or similar projects can find here easy solutions to common problems such as error management or faulty class relations.
 
