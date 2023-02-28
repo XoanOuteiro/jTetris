@@ -178,7 +178,6 @@ public class Xogo {
         }
         
         return false;
-        
     }
 
     //Killer methods and restarts
@@ -232,5 +231,18 @@ public class Xogo {
         
         this.fichaActual = null;
         this.floor = null;
+    }
+    
+    
+    
+    //Line detection and deletion
+    
+    private void countLineRoutine(){
+        this.it = floor.iterator();
+        
+        while(it.hasNext()){
+            
+        }
+        
     }
 }
