@@ -118,6 +118,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         timeField.setText("0");
         xogo.killAll();
         this.xogo = new Xogo(xogoMainPane, this, 10);
+        refreshPanel();
+    }
+
+    public void refreshPanel() {
+        xogoMainPane.updateUI();
     }
 
     /**
