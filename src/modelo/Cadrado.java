@@ -51,6 +51,10 @@ public class Cadrado {
         return y;
     }
     
+    public JLabel getLabel(){
+        return this.label_cadrado;
+    }
+    
     /**
      * 
      * @return int[2]

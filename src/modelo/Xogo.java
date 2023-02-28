@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Random;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -178,7 +179,6 @@ public class Xogo {
         }
         
         return false;
-        
     }
 
     //Killer methods and restarts
@@ -232,5 +232,41 @@ public class Xogo {
         
         this.fichaActual = null;
         this.floor = null;
+    }
+    
+    
+    
+    //Line detection and deletion
+    
+    private void countLineRoutine(){
+        this.it = floor.iterator();
+        
+        while(it.hasNext()){
+            
+        }
+        
+    }
+    
+    //Serving method
+    /**
+     * 
+     * @return ArrayList <JLabel>
+     * 
+     *  Passes an ArrayList containing all labels
+     *  from floor and from piece
+     */
+    public ArrayList getAllLabels(){
+        ArrayList <JLabel> passable = new ArrayList();
+        this.it = floor.iterator();
+        
+        while(it.hasNext()){
+            passable.add(it.next().getLabel());
+        }
+        
+        for (int i = 0; i < this.fichaActual.getCadrados().length; i++) {
+            passable.add(this.fichaActual.getCadrados()[i].getLabel());
+        }
+        
+        return passable;
     }
 }

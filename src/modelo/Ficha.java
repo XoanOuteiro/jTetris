@@ -11,6 +11,9 @@ public abstract class Ficha {
     public Cadrado[] cadrados = new Cadrado[4];
     
     //Common methods
+    public Cadrado[] getCadrados(){
+        return cadrados;
+    }
     
     //Movement
     public void moverDereita(){
