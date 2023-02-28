@@ -102,6 +102,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //exit button
         exitButton.setFocusable(false);
     }
+    
+    private void reset(){
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
