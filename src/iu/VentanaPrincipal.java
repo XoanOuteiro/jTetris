@@ -3,6 +3,10 @@ package iu;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import modelo.Xogo;
@@ -103,8 +107,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         exitButton.setFocusable(false);
     }
     
-    private void reset(){
-        
+    private void reset() {
+        ArrayList <JLabel> labels = new ArrayList();
+        Iterator <JLabel> it = labels.iterator() ;
+        while(it.hasNext()){
+            xogoMainPane.remove(it.next());
+        }    
+        gameTimeTimer.restart();
+        seconds = 0;
+        timeField.setText("0");
+        xogo.killAll();
+        this.xogo = new Xogo(xogoMainPane, this, 10);
     }
 
     /**
@@ -500,10 +513,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_stickyKeysActionPerformed
 
     private void restartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restartButtonActionPerformed
-        
-        this.xogo.killAll();
-        this.xogo = new Xogo(xogoMainPane, this, 10);
-        
+        reset();
     }//GEN-LAST:event_restartButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
