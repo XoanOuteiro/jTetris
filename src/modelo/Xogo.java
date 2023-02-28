@@ -62,22 +62,21 @@ public class Xogo {
     }
 
     public void moverFichaAbaixo() {
-        
 
-        if ( collidingCurrentToFloor() || fichaActual.isCollideWithLowerLimit() ) {
+        if (collidingCurrentToFloor() || fichaActual.isCollideWithLowerLimit()) {
             /*
             * Each time the piece is moved down (always using this method by user or and timer)
             * the routine is called and asks if the piece has reached the lower limit, if it has the
             * consequent method is called fusing the pieces squares to the floor and then killing its entity
              */
             this.fuseCurrentToFloor();
-            
+
         } else {
-            
+
             if (ePosicionValida(fichaActual.getMostDownSquare().getX(), fichaActual.getMostDownSquare().getY() + LADO_CADRADO)) {
                 fichaActual.moverAbaixo();
             }
-            
+
         }
     }
 
@@ -117,15 +116,15 @@ public class Xogo {
         //Is occupied?
         this.it = floor.iterator();
         unOccupied = true;
-        
-        while(it.hasNext()){
+
+        while (it.hasNext()) {
             Cadrado j = it.next();
-            
-            if(x == j.getX() && y == j.getY()){
+
+            if (x == j.getX() && y == j.getY()) {
                 unOccupied = false;
             }
         }
-        
+
         //Final operand
         if (clampedOnX && clampedOnY && unOccupied) {
             return true;
@@ -136,10 +135,8 @@ public class Xogo {
 
     //Floor methods
     /**
-     * Converts each current piece of
-     * fichaActual into a floor piece,
-     * the calls for creation of a new 
-     * fichaActual.
+     * Converts each current piece of fichaActual into a floor piece, the calls
+     * for creation of a new fichaActual.
      */
     public void fuseCurrentToFloor() {
         for (int i = 0; i < 4; i++) {
@@ -148,42 +145,39 @@ public class Xogo {
 
         this.createNewRandomFicha();    //Consider changing this call to other position
     }
-    
+
     /**
-     * 
-     * @return 
-     * 
-     * Checks if the piece will collide 
-     * onto a floor piece
-     * within the next tick
+     *
+     * @return
+     *
+     * Checks if the piece will collide onto a floor piece within the next tick
      */
-    public boolean collidingCurrentToFloor(){
+    public boolean collidingCurrentToFloor() {
         //Build an iterator for floor collection
         this.it = floor.iterator();
-        
-        
+
         while (it.hasNext()) {
-            
+
             //Define the square to compare
             Cadrado j = it.next();
-            
-            //Compare to Y+l and X in order to check collisions
-            for (int i = 0; i < 4; i++){
 
-                if(j.getY() == this.fichaActual.cadrados[i].getY() + LADO_CADRADO && j.getX() == this.fichaActual.cadrados[i].getX()){
-                    
+            //Compare to Y+l and X in order to check collisions
+            for (int i = 0; i < 4; i++) {
+
+                if (j.getY() == this.fichaActual.cadrados[i].getY() + LADO_CADRADO && j.getX() == this.fichaActual.cadrados[i].getX()) {
+
                     return true;    //Condition to floor fusion
-                    
-                }        
+
+                }
             }
         }
-        
+
         return false;
     }
 
     //Killer methods and restarts
     public void createNewRandomFicha() {
-         Random rand = new Random();
+        Random rand = new Random();
         int index = rand.nextInt(4) + 1;
 
         switch (index) {
@@ -227,46 +221,48 @@ public class Xogo {
                 break;
         }
     }
-    
-    public void killAll(){
-        
+
+    public void killAll() {
+
         this.fichaActual = null;
         this.floor = null;
     }
-    
-    
-    
+
     //Line detection and deletion
-    
-    private void countLineRoutine(){
-        this.it = floor.iterator();
-        
-        while(it.hasNext()){
+    private void countLineRoutine() {
+
+        for (int i = 0; i < MAX_Y/LADO_CADRADO; i += LADO_CADRADO) {
+
             
+            int counter = 0; //Start at 0, goes to maxX/lado
+            this.it = floor.iterator(); //Restart iterator pertesting
+
+            while (it.hasNext()) {
+
+            }
         }
-        
+
     }
-    
+
     //Serving method
     /**
-     * 
+     *
      * @return ArrayList <JLabel>
-     * 
-     *  Passes an ArrayList containing all labels
-     *  from floor and from piece
+     *
+     * Passes an ArrayList containing all labels from floor and from piece
      */
-    public ArrayList getAllLabels(){
-        ArrayList <JLabel> passable = new ArrayList();
+    public ArrayList getAllLabels() {
+        ArrayList<JLabel> passable = new ArrayList();
         this.it = floor.iterator();
-        
-        while(it.hasNext()){
+
+        while (it.hasNext()) {
             passable.add(it.next().getLabel());
         }
-        
+
         for (int i = 0; i < this.fichaActual.getCadrados().length; i++) {
             passable.add(this.fichaActual.getCadrados()[i].getLabel());
         }
-        
+
         return passable;
     }
 }
