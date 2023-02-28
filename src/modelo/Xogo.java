@@ -144,6 +144,7 @@ public class Xogo {
         }
 
         this.createNewRandomFicha();    //Consider changing this call to other position
+        this.contarLineas();
     }
 
     /**
@@ -252,15 +253,32 @@ public class Xogo {
                 //Add line to deleteable arraylist, add 1 tp "ammDeletedLines"
                 ammDeletedLines++;
                 
+                Iterator <Cadrado> extract = floor.iterator();
+               
+                //**** Now we know i is full we can extract all the squares on its Y value
+                while(extract.hasNext()){
+                    
+                    if(it.next().getY() == i){
+                        deletable.add(extract.next());
+                    }
+                    
+                }
+               //**** Now deletable owns a reference to all cadrados on Y = i
+               //>> The loop continues to next Y = i value;
             }
         }
+        //By now we have all filled lines
         
         //Send deletable to deleteLines method
         borrarLineas(deletable);
     }
     
     private void borrarLineas(ArrayList<Cadrado> arr){
+        Iterator <Cadrado> it = arr.iterator();
         
+        while(it.hasNext()){
+            this.ventanaPrincipal.borrarCadrado(it.next().getLabel());
+        }
     }
 
     //Serving method

@@ -40,6 +40,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         timerTicks();
 
     }
+    
+    public void borrarCadrado(JLabel este){
+        xogoMainPane.remove(este);
+        xogoMainPane.updateUI();
+    }
 
     private void attributeHyperset() {
         //Attribute hyperset
