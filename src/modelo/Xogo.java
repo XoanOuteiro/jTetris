@@ -229,8 +229,11 @@ public class Xogo {
     }
 
     //Line detection and deletion
-    private void countLineRoutine() {
+    public void contarLineas() {
 
+        ArrayList <Cadrado> deletable = new ArrayList();
+        int ammDeletedLines = 0;
+        
         for (int i = 0; i < MAX_Y/LADO_CADRADO; i += LADO_CADRADO) {
 
             
@@ -238,10 +241,26 @@ public class Xogo {
             this.it = floor.iterator(); //Restart iterator pertesting
 
             while (it.hasNext()) {
-
+                
+                if(it.next().getY() == i){
+                    counter++;
+                }
+            }
+            
+            //By now we have checked an entire line
+            if(counter ==  MAX_X/LADO_CADRADO){
+                //Add line to deleteable arraylist, add 1 tp "ammDeletedLines"
+                ammDeletedLines++;
+                
             }
         }
-
+        
+        //Send deletable to deleteLines method
+        borrarLineas(deletable);
+    }
+    
+    private void borrarLineas(ArrayList<Cadrado> arr){
+        
     }
 
     //Serving method
