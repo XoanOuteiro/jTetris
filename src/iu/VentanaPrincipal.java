@@ -108,7 +108,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
     
     private void reset() {
-        ArrayList <JLabel> labels = new ArrayList();
+        ArrayList <JLabel> labels = xogo.getAllLabels();
         Iterator <JLabel> it = labels.iterator() ;
         while(it.hasNext()){
             xogoMainPane.remove(it.next());
