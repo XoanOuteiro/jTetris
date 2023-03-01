@@ -312,7 +312,20 @@ public class Xogo {
     }
     
     private void downYtransform(int amountOfLinesDeleted, int highestLine){
+        Iterator <Cadrado> it = floor.iterator();
         
+        while(it.hasNext()){
+            
+            Cadrado next = it.next();
+            
+            if(next.getY() <= highestLine){
+                
+                next.setY( next.getY() + (amountOfLinesDeleted*LADO_CADRADO)); 
+                
+            }
+        }
+        
+        ventanaPrincipal.refreshPanel();
     }
 
     //Serving method

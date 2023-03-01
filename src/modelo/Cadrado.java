@@ -41,6 +41,7 @@ public class Cadrado {
     
     public void setY(int y) {
         this.y = y;
+        this.label_cadrado.setLocation(x, y);
     }
 
     public int getX() {
