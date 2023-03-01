@@ -234,6 +234,7 @@ public class Xogo {
 
         ArrayList<Cadrado> deletable = new ArrayList();
         int ammDeletedLines = 0;
+        int highestLineCounter = 0; //Always start at 0
 
         for (int i = 0; i <= MAX_Y / LADO_CADRADO; i++) {
 
@@ -253,6 +254,11 @@ public class Xogo {
 
             //By now we have checked an entire line
             if (counter == MAX_X / LADO_CADRADO) {
+                
+                if((i*LADO_CADRADO) > highestLineCounter){
+                    highestLineCounter = (i*LADO_CADRADO);
+                }
+                
                 //Add line to deleteable arraylist, add 1 tp "ammDeletedLines"
                 ammDeletedLines++;
 
@@ -284,13 +290,14 @@ public class Xogo {
         //Send deletable to deleteLines method
         if (ammDeletedLines >= 1) {
             borrarLineas(deletable);
+            downYtransform(ammDeletedLines,highestLineCounter);
         }
     }
 
     private void borrarLineas(ArrayList<Cadrado> arr) {
 
         //DEBUG STATEMENT
-        System.out.println(">>>BORRAR LINEAS: hasBeenCalled");
+        //System.out.println(">>>BORRAR LINEAS: hasBeenCalled");
 
         Iterator<Cadrado> it = arr.iterator();
 
@@ -302,6 +309,10 @@ public class Xogo {
             
             floor.remove(next);
         }
+    }
+    
+    private void downYtransform(int amountOfLinesDeleted, int highestLine){
+        
     }
 
     //Serving method
