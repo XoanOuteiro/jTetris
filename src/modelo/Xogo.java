@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 public class Xogo {
 
     public static final int LADO_CADRADO = 20;
-    public static final int MAX_X = 220;            //Changed to -20 so that X and Y detection would work
+    public static final int MAX_X = 240;            //Changed to -20 so that X and Y detection would work
     public static final int MAX_Y = 580;
     public boolean pausa;
     public VentanaPrincipal ventanaPrincipal;
@@ -104,7 +104,7 @@ public class Xogo {
         boolean unOccupied = true;  //Change when collisions are made
 
         //Clamped on X?
-        if ((x >= 0) && (x <= MAX_X)) {
+        if ((x >= 0) && (x <= (MAX_X-20))) { //-20 so as to keep integrity (label coords are on bottom left)
             clampedOnX = true;
         }
 
@@ -232,52 +232,75 @@ public class Xogo {
     //Line detection and deletion
     public void contarLineas() {
 
-        ArrayList <Cadrado> deletable = new ArrayList();
+        ArrayList<Cadrado> deletable = new ArrayList();
         int ammDeletedLines = 0;
-        
-        for (int i = 0; i < MAX_Y/LADO_CADRADO; i += LADO_CADRADO) {
 
-            
+        for (int i = 0; i <= MAX_Y / LADO_CADRADO; i++) {
+
             int counter = 0; //Start at 0, goes to maxX/lado
             this.it = floor.iterator(); //Restart iterator pertesting
 
             while (it.hasNext()) {
-                
-                if(it.next().getY() == i){
+
+                if (it.next().getY() == (i * LADO_CADRADO)) {
                     counter++;
                 }
+
             }
-            
+
+            //DEBUG STATEMENT
+            System.out.println("[Line: " + i + "/" + MAX_Y / LADO_CADRADO + "]" + "[counted: " + counter + " / max: " + MAX_X / LADO_CADRADO + "]");
+
             //By now we have checked an entire line
-            if(counter ==  MAX_X/LADO_CADRADO){
+            if (counter == MAX_X / LADO_CADRADO) {
                 //Add line to deleteable arraylist, add 1 tp "ammDeletedLines"
                 ammDeletedLines++;
-                
-                Iterator <Cadrado> extract = floor.iterator();
-               
+
+                Iterator<Cadrado> extract = floor.iterator();
+
                 //**** Now we know i is full we can extract all the squares on its Y value
-                while(extract.hasNext()){
-                    
-                    if(it.next().getY() == i){
-                        deletable.add(extract.next());
+                //DEBUG STATEMENT
+                System.out.println(">>>EXTRACTING LINE");
+
+                while (extract.hasNext()) {
+
+                    Cadrado nextSquare = extract.next();
+                        
+                    if (nextSquare.getY() == (i * LADO_CADRADO)) {
+                        deletable.add(nextSquare);
                     }
-                    
+
                 }
-               //**** Now deletable owns a reference to all cadrados on Y = i
-               //>> The loop continues to next Y = i value;
+
+                //DEBUG STATEMENT
+                System.out.println(">>>EXTRACTION FINISHED");
+
+                //**** Now deletable owns a reference to all cadrados on Y = i
+                //>> The loop continues to next Y = i value;
             }
         }
         //By now we have all filled lines
-        
+
         //Send deletable to deleteLines method
-        borrarLineas(deletable);
+        if (ammDeletedLines >= 1) {
+            borrarLineas(deletable);
+        }
     }
-    
-    private void borrarLineas(ArrayList<Cadrado> arr){
-        Iterator <Cadrado> it = arr.iterator();
-        
-        while(it.hasNext()){
-            this.ventanaPrincipal.borrarCadrado(it.next().getLabel());
+
+    private void borrarLineas(ArrayList<Cadrado> arr) {
+
+        //DEBUG STATEMENT
+        System.out.println(">>>BORRAR LINEAS: hasBeenCalled");
+
+        Iterator<Cadrado> it = arr.iterator();
+
+        while (it.hasNext()) {
+            
+            Cadrado next = it.next();
+            
+            this.ventanaPrincipal.borrarCadrado(next.getLabel());
+            
+            floor.remove(next);
         }
     }
 
