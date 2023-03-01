@@ -249,7 +249,7 @@ public class Xogo {
             }
 
             //DEBUG STATEMENT
-            System.out.println("[Line: " + i + "/" + MAX_Y / LADO_CADRADO + "]" + "[counted: " + counter + " / max: " + MAX_X / LADO_CADRADO + "]");
+            //System.out.println("[Line: " + i + "/" + MAX_Y / LADO_CADRADO + "]" + "[counted: " + counter + " / max: " + MAX_X / LADO_CADRADO + "]");
 
             //By now we have checked an entire line
             if (counter == MAX_X / LADO_CADRADO) {
@@ -260,7 +260,7 @@ public class Xogo {
 
                 //**** Now we know i is full we can extract all the squares on its Y value
                 //DEBUG STATEMENT
-                System.out.println(">>>EXTRACTING LINE");
+                //System.out.println(">>>EXTRACTING LINE");
 
                 while (extract.hasNext()) {
 
@@ -273,7 +273,7 @@ public class Xogo {
                 }
 
                 //DEBUG STATEMENT
-                System.out.println(">>>EXTRACTION FINISHED");
+                //System.out.println(">>>EXTRACTION FINISHED");
 
                 //**** Now deletable owns a reference to all cadrados on Y = i
                 //>> The loop continues to next Y = i value;
