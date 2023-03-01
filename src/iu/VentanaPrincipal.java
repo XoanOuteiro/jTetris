@@ -411,14 +411,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        restartButton.setText("jButton1");
+        restartButton.setText("R");
         restartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 restartButtonActionPerformed(evt);
             }
         });
 
-        exitButton.setText("jButton2");
+        exitButton.setText("X");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitButtonActionPerformed(evt);
