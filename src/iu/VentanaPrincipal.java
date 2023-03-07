@@ -119,6 +119,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             xogoMainPane.remove(it.next());
         }    
         gameTimeTimer.restart();
+        
+        if(!playing){
+            gameTimeTimer.stop();
+        }
         seconds = 0;
         timeField.setText("0");
         xogo.killAll();
