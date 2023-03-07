@@ -656,6 +656,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             
             seconds++;
             this.timeField.setText(Integer.toString(seconds));
+            
+            if(xogo.endOfGameDetection()){
+                reset();
+            }
 
         });
     }

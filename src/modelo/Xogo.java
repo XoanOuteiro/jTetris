@@ -349,4 +349,27 @@ public class Xogo {
 
         return passable;
     }
+    
+    /**
+     * 
+     * @return boolean
+     * 
+     * Returns true if a square on the floor has reached the 40y value
+     * indicating for end of game. Returns false otherwise.
+     */
+    public boolean endOfGameDetection(){
+        Iterator <Cadrado> iter = floor.iterator();
+        
+        while(iter.hasNext()){
+            
+            Cadrado next = iter.next();
+            
+            if(next.getY() <= 40){
+                return true;
+            }
+        }
+        
+        return false;
+                
+    }
 }
