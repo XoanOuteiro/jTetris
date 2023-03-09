@@ -27,6 +27,7 @@ public class Xogo {
     public ArrayList<Cadrado> floor;
     public Iterator<Cadrado> it;
     private int score = 0;
+    private int nlines = 0;
 
     public Ficha fichaActual;
 
@@ -293,7 +294,9 @@ public class Xogo {
             
             //Score updates
             this.score += 100*ammDeletedLines;
-            this.ventanaPrincipal.getPanelScore1().setText(Integer.toString(score));
+            this.ventanaPrincipal.getPanelScore2().setText(Integer.toString(score));
+            this.nlines += ammDeletedLines;
+            this.ventanaPrincipal.getnLinesPanel().setText(Integer.toString(nlines));
             
             
             

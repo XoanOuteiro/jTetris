@@ -127,12 +127,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         timeField.setText("0");
         xogo.killAll();
         this.xogo = new Xogo(xogoMainPane, this, 10);
-        panelScore1.setText("0");
+        nLinesPanel.setText("0");
+        panelScore2.setText("0");
         refreshPanel();
     }
 
+    public JLabel getPanelScore2() {
+        return panelScore2;
+    }
+
     public JLabel getPanelScore1() {
-        return panelScore1;
+        return nLinesPanel;
+    }
+
+    public JLabel getnLinesPanel() {
+        return nLinesPanel;
     }
 
     public JLabel getScore() {
@@ -171,7 +180,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         panelLevel = new javax.swing.JPanel();
         panelNext = new javax.swing.JPanel();
         timeLabel = new javax.swing.JLabel();
-        panelScore1 = new javax.swing.JLabel();
+        nLinesPanel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        panelScore2 = new javax.swing.JLabel();
         sizeL = new javax.swing.JPanel();
         playButton = new javax.swing.JToggleButton();
         helpButton = new javax.swing.JButton();
@@ -327,7 +338,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         panelLevelLayout.setVerticalGroup(
             panelLevelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 102, Short.MAX_VALUE)
+            .addGap(0, 55, Short.MAX_VALUE)
         );
 
         panelNext.setBackground(new java.awt.Color(204, 204, 204));
@@ -337,9 +348,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         timeLabel.setText("Time");
 
-        panelScore1.setBackground(new java.awt.Color(153, 153, 153));
-        panelScore1.setText("0");
-        panelScore1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nLinesPanel.setBackground(new java.awt.Color(153, 153, 153));
+        nLinesPanel.setText("0");
+        nLinesPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setText("Nº LINES");
+
+        panelScore2.setBackground(new java.awt.Color(153, 153, 153));
+        panelScore2.setText("0");
+        panelScore2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout sizeRLayout = new javax.swing.GroupLayout(sizeR);
         sizeR.setLayout(sizeRLayout);
@@ -349,29 +366,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(sizeRLayout.createSequentialGroup()
                         .addContainerGap()
+                        .addComponent(nLinesPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(sizeRLayout.createSequentialGroup()
                         .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(sizeRLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(level))
-                    .addGroup(sizeRLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(score))
-                    .addGroup(sizeRLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(next))
-                    .addGroup(sizeRLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(timeField, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(sizeRLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(timeLabel)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                            .addGroup(sizeRLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(panelNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(sizeRLayout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(next))
+                            .addGroup(sizeRLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(timeField, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(sizeRLayout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(timeLabel))
+                            .addGroup(sizeRLayout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(level))
+                            .addGroup(sizeRLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(panelLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(sizeRLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(score))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(sizeRLayout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addComponent(panelScore1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()
+                    .addComponent(panelScore2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -389,22 +415,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(next)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelNext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelNext, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(level)
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addComponent(panelLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(18, 18, 18)
                 .addComponent(score)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addGap(80, 80, 80)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nLinesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(114, Short.MAX_VALUE))
             .addGroup(sizeRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sizeRLayout.createSequentialGroup()
-                    .addContainerGap(483, Short.MAX_VALUE)
-                    .addComponent(panelScore1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(73, 73, 73)))
+                    .addContainerGap(350, Short.MAX_VALUE)
+                    .addComponent(panelScore2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(206, 206, 206)))
         );
-
-        sizeRLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {panelLevel, panelNext});
 
         sizeRLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {level, next, score});
 
@@ -491,16 +519,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(sizeR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(sizeL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(xogoMainPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(sizeL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sizeR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(xogoMainPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
 
@@ -680,6 +706,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton exitButton;
     private javax.swing.JButton helpButton;
     private javax.swing.JFrame helpMenu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -688,10 +715,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel level;
     private javax.swing.JLabel levelLabel;
     private javax.swing.JSlider levelSlider;
+    private javax.swing.JLabel nLinesPanel;
     private javax.swing.JLabel next;
     private javax.swing.JPanel panelLevel;
     private javax.swing.JPanel panelNext;
-    private javax.swing.JLabel panelScore1;
+    private javax.swing.JLabel panelScore2;
     private javax.swing.JToggleButton playButton;
     private javax.swing.JButton restartButton;
     private javax.swing.JLabel score;
