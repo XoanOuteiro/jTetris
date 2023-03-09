@@ -81,6 +81,21 @@ public class Xogo {
 
         }
     }
+    
+    /**
+     * While a square isnt detected colliding with most down square we call move L downwards
+     */
+    public void spacePressSlam(){
+        
+        //its recomended we do this on UI so that we dont overextend public methods
+        //also, if we do this by increasing timerspeeds then we wont need to any specific score
+        //typings as it well be automatically processed
+        boolean canMove = true;
+        
+        while(canMove){
+            
+        }
+    }
 
     //Getters & Setters
 
