@@ -82,10 +82,116 @@ public class Xogo {
         }
     }
 
+    //Getters & Setters
+
+    public static int getLADO_CADRADO() {
+        return LADO_CADRADO;
+    }
+
+    public static int getMAX_X() {
+        return MAX_X;
+    }
+
+    public static int getMAX_Y() {
+        return MAX_Y;
+    }
+
+    public boolean isPausa() {
+        return pausa;
+    }
+
+    public VentanaPrincipal getVentanaPrincipal() {
+        return ventanaPrincipal;
+    }
+
+    public JPanel getHolder() {
+        return holder;
+    }
+
+    public int getNumeroLineas() {
+        return numeroLineas;
+    }
+
+    public int getRowAM() {
+        return rowAM;
+    }
+
+    public int getColAM() {
+        return colAM;
+    }
+
+    public int getCelSiz() {
+        return celSiz;
+    }
+
+    public ArrayList<Cadrado> getFloor() {
+        return floor;
+    }
+
+    public Iterator<Cadrado> getIt() {
+        return it;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getNumeroLinas() {
+        return numeroLinas;
+    }
+
     public void rotarFicha() {
         fichaActual.rotar();
     }
 
+    public void setPausa(boolean pausa) {
+        this.pausa = pausa;
+    }
+
+    public void setVentanaPrincipal(VentanaPrincipal ventanaPrincipal) {
+        this.ventanaPrincipal = ventanaPrincipal;
+    }
+
+    public void setHolder(JPanel holder) {
+        this.holder = holder;
+    }
+
+    public void setNumeroLineas(int numeroLineas) {
+        this.numeroLineas = numeroLineas;
+    }
+
+    public void setRowAM(int rowAM) {
+        this.rowAM = rowAM;
+    }
+
+    public void setColAM(int colAM) {
+        this.colAM = colAM;
+    }
+
+    public void setCelSiz(int celSiz) {
+        this.celSiz = celSiz;
+    }
+
+    public void setFloor(ArrayList<Cadrado> floor) {
+        this.floor = floor;
+    }
+
+    public void setIt(Iterator<Cadrado> it) {
+        this.it = it;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void setNumeroLinas(int numeroLinas) {
+        this.numeroLinas = numeroLinas;
+    }
+
+    public void setFichaActual(Ficha fichaActual) {
+        this.fichaActual = fichaActual;
+    }
+    
     //Utility logic
     /**
      *

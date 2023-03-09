@@ -684,6 +684,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
             xogo.moverFichaAbaixo();
             xogo.fichaActual.updateLabelPos();
+            xogo.setScore(xogo.getScore()+1);
+            this.panelScore2.setText(Integer.toString(xogo.getScore()));
 
         });
         
