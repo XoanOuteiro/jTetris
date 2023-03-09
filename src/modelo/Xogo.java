@@ -27,7 +27,7 @@ public class Xogo {
     public ArrayList<Cadrado> floor;
     public Iterator<Cadrado> it;
     private int score = 0;
-    private int nlines = 0;
+    private int numeroLinas = 0;
 
     public Ficha fichaActual;
 
@@ -41,7 +41,7 @@ public class Xogo {
         this.floor = new ArrayList();
 
         //TEST
-        this.createNewRandomFicha();
+        this.xerarNovaFicha();
     }
 
     //Getters & Setters
@@ -71,7 +71,7 @@ public class Xogo {
             * the routine is called and asks if the piece has reached the lower limit, if it has the
             * consequent method is called fusing the pieces squares to the floor and then killing its entity
              */
-            this.fuseCurrentToFloor();
+            this.engadirFichaAoChan();
 
         } else {
 
@@ -140,13 +140,13 @@ public class Xogo {
      * Converts each current piece of fichaActual into a floor piece, the calls
      * for creation of a new fichaActual.
      */
-    public void fuseCurrentToFloor() {
+    public void engadirFichaAoChan() {
         for (int i = 0; i < 4; i++) {
             this.floor.add(this.fichaActual.cadrados[i]);
         }
 
-        this.createNewRandomFicha();    //Consider changing this call to other position
-        this.contarLineas();
+        this.xerarNovaFicha();    //Consider changing this call to other position
+        this.borrarLineas();
     }
 
     /**
@@ -179,7 +179,7 @@ public class Xogo {
     }
 
     //Killer methods and restarts
-    public void createNewRandomFicha() {
+    public void xerarNovaFicha() {
         Random rand = new Random();
         int index = rand.nextInt(4) + 1;
 
@@ -232,7 +232,7 @@ public class Xogo {
     }
 
     //Line detection and deletion
-    public void contarLineas() {
+    public void borrarLineas() {
 
         ArrayList<Cadrado> deletable = new ArrayList();
         int ammDeletedLines = 0;
@@ -295,17 +295,17 @@ public class Xogo {
             //Score updates
             this.score += 100*ammDeletedLines;
             this.ventanaPrincipal.getPanelScore2().setText(Integer.toString(score));
-            this.nlines += ammDeletedLines;
-            this.ventanaPrincipal.getnLinesPanel().setText(Integer.toString(nlines));
+            this.numeroLinas += ammDeletedLines;
+            this.ventanaPrincipal.getnLinesPanel().setText(Integer.toString(numeroLinas));
             
             
             
-            borrarLineas(deletable);
+            borrarLineasCompletas(deletable);
             downYtransform(ammDeletedLines,highestLineCounter);
         }
     }
 
-    private void borrarLineas(ArrayList<Cadrado> arr) {
+    private void borrarLineasCompletas(ArrayList<Cadrado> arr) {
 
         //DEBUG STATEMENT
         //System.out.println(">>>BORRAR LINEAS: hasBeenCalled");
