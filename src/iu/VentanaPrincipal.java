@@ -127,7 +127,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         timeField.setText("0");
         xogo.killAll();
         this.xogo = new Xogo(xogoMainPane, this, 10);
+        panelScore1.setText("0");
         refreshPanel();
+    }
+
+    public JLabel getPanelScore1() {
+        return panelScore1;
+    }
+
+    public JLabel getScore() {
+        return score;
     }
 
     public void refreshPanel() {

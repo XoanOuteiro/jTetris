@@ -26,6 +26,7 @@ public class Xogo {
     public int celSiz;//= to lado¿
     public ArrayList<Cadrado> floor;
     public Iterator<Cadrado> it;
+    private int score = 0;
 
     public Ficha fichaActual;
 
@@ -289,6 +290,13 @@ public class Xogo {
 
         //Send deletable to deleteLines method
         if (ammDeletedLines >= 1) {
+            
+            //Score updates
+            this.score += 100*ammDeletedLines;
+            this.ventanaPrincipal.getPanelScore1().setText(Integer.toString(score));
+            
+            
+            
             borrarLineas(deletable);
             downYtransform(ammDeletedLines,highestLineCounter);
         }
