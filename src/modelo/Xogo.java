@@ -81,24 +81,24 @@ public class Xogo {
 
         }
     }
-    
+
     /**
-     * While a square isnt detected colliding with most down square we call move L downwards
+     * While a square isnt detected colliding with most down square we call move
+     * L downwards
      */
-    public void spacePressSlam(){
-        
+    public void spacePressSlam() {
+
         //its recomended we do this on UI so that we dont overextend public methods
         //also, if we do this by increasing timerspeeds then we wont need to any specific score
         //typings as it well be automatically processed
         boolean canMove = true;
-        
-        while(canMove){
-            
+
+        while (canMove) {
+
         }
     }
 
     //Getters & Setters
-
     public static int getLADO_CADRADO() {
         return LADO_CADRADO;
     }
@@ -206,7 +206,7 @@ public class Xogo {
     public void setFichaActual(Ficha fichaActual) {
         this.fichaActual = fichaActual;
     }
-    
+
     //Utility logic
     /**
      *
@@ -227,7 +227,7 @@ public class Xogo {
         boolean unOccupied = true;  //Change when collisions are made
 
         //Clamped on X?
-        if ((x >= 0) && (x <= (MAX_X-20))) { //-20 so as to keep integrity (label coords are on bottom left)
+        if ((x >= 0) && (x <= (MAX_X - 20))) { //-20 so as to keep integrity (label coords are on bottom left)
             clampedOnX = true;
         }
 
@@ -308,42 +308,36 @@ public class Xogo {
             case 1:
 
                 this.fichaActual = new FichaT(120, 20);
-                for (int i = 0; i < 4; i++) {
-                    this.holder.add(fichaActual.cadrados[i].label_cadrado);
-                }
-
                 break;
 
             case 2:
 
                 this.fichaActual = new FichaBarra(120, 20);
-                for (int i = 0; i < 4; i++) {
-                    this.holder.add(fichaActual.cadrados[i].label_cadrado);
-                }
-
                 break;
 
             case 3:
 
                 this.fichaActual = new FichaCadrada(120, 20);
-                for (int i = 0; i < 4; i++) {
-                    this.holder.add(fichaActual.cadrados[i].label_cadrado);
-                }
-
                 break;
 
             case 4:
 
-                this.fichaActual = new FichaL(120, 20);
-                for (int i = 0; i < 4; i++) {
-                    this.holder.add(fichaActual.cadrados[i].label_cadrado);
-                }
-
+                this.fichaActual = new FichaL(120, 20); 
+                
                 break;
 
             default:
                 break;
         }
+        
+        setupThisFicha(fichaActual);
+    }
+
+    private void setupThisFicha(Ficha actual) {
+        for (int i = 0; i < 4; i++) {
+            this.holder.add(fichaActual.cadrados[i].label_cadrado);
+        }
+
     }
 
     public void killAll() {
@@ -374,14 +368,13 @@ public class Xogo {
 
             //DEBUG STATEMENT
             //System.out.println("[Line: " + i + "/" + MAX_Y / LADO_CADRADO + "]" + "[counted: " + counter + " / max: " + MAX_X / LADO_CADRADO + "]");
-
             //By now we have checked an entire line
             if (counter == MAX_X / LADO_CADRADO) {
-                
-                if((i*LADO_CADRADO) > highestLineCounter){
-                    highestLineCounter = (i*LADO_CADRADO);
+
+                if ((i * LADO_CADRADO) > highestLineCounter) {
+                    highestLineCounter = (i * LADO_CADRADO);
                 }
-                
+
                 //Add line to deleteable arraylist, add 1 tp "ammDeletedLines"
                 ammDeletedLines++;
 
@@ -390,11 +383,10 @@ public class Xogo {
                 //**** Now we know i is full we can extract all the squares on its Y value
                 //DEBUG STATEMENT
                 //System.out.println(">>>EXTRACTING LINE");
-
                 while (extract.hasNext()) {
 
                     Cadrado nextSquare = extract.next();
-                        
+
                     if (nextSquare.getY() == (i * LADO_CADRADO)) {
                         deletable.add(nextSquare);
                     }
@@ -403,7 +395,6 @@ public class Xogo {
 
                 //DEBUG STATEMENT
                 //System.out.println(">>>EXTRACTION FINISHED");
-
                 //**** Now deletable owns a reference to all cadrados on Y = i
                 //>> The loop continues to next Y = i value;
             }
@@ -412,17 +403,15 @@ public class Xogo {
 
         //Send deletable to deleteLines method
         if (ammDeletedLines >= 1) {
-            
+
             //Score updates
-            this.score += 100*ammDeletedLines;
+            this.score += 100 * ammDeletedLines;
             this.ventanaPrincipal.getPanelScore2().setText(Integer.toString(score));
             this.numeroLinas += ammDeletedLines;
             this.ventanaPrincipal.getnLinesPanel().setText(Integer.toString(numeroLinas));
-            
-            
-            
+
             borrarLineasCompletas(deletable);
-            downYtransform(ammDeletedLines,highestLineCounter);
+            downYtransform(ammDeletedLines, highestLineCounter);
         }
     }
 
@@ -430,33 +419,32 @@ public class Xogo {
 
         //DEBUG STATEMENT
         //System.out.println(">>>BORRAR LINEAS: hasBeenCalled");
-
         Iterator<Cadrado> it = arr.iterator();
 
         while (it.hasNext()) {
-            
+
             Cadrado next = it.next();
-            
+
             this.ventanaPrincipal.borrarCadrado(next.getLabel());
-            
+
             floor.remove(next);
         }
     }
-    
-    private void downYtransform(int amountOfLinesDeleted, int highestLine){
-        Iterator <Cadrado> it = floor.iterator();
-        
-        while(it.hasNext()){
-            
+
+    private void downYtransform(int amountOfLinesDeleted, int highestLine) {
+        Iterator<Cadrado> it = floor.iterator();
+
+        while (it.hasNext()) {
+
             Cadrado next = it.next();
-            
-            if(next.getY() <= highestLine){
-                
-                next.setY( next.getY() + (amountOfLinesDeleted*LADO_CADRADO)); 
-                
+
+            if (next.getY() <= highestLine) {
+
+                next.setY(next.getY() + (amountOfLinesDeleted * LADO_CADRADO));
+
             }
         }
-        
+
         ventanaPrincipal.refreshPanel();
     }
 
@@ -481,27 +469,27 @@ public class Xogo {
 
         return passable;
     }
-    
+
     /**
-     * 
+     *
      * @return boolean
-     * 
+     *
      * Returns true if a square on the floor has reached the 40y value
      * indicating for end of game. Returns false otherwise.
      */
-    public boolean endOfGameDetection(){
-        Iterator <Cadrado> iter = floor.iterator();
-        
-        while(iter.hasNext()){
-            
+    public boolean endOfGameDetection() {
+        Iterator<Cadrado> iter = floor.iterator();
+
+        while (iter.hasNext()) {
+
             Cadrado next = iter.next();
-            
-            if(next.getY() <= 40){
+
+            if (next.getY() <= 40) {
                 return true;
             }
         }
-        
+
         return false;
-                
+
     }
 }
