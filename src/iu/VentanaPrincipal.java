@@ -113,16 +113,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
     
     private void reset() {
+        
         ArrayList <JLabel> labels = xogo.getAllLabels();
         Iterator <JLabel> it = labels.iterator() ;
+        
         while(it.hasNext()){
             xogoMainPane.remove(it.next());
         }    
+        
         gameTimeTimer.restart();
         
         if(!playing){
             gameTimeTimer.stop();
         }
+        
         seconds = 0;
         timeField.setText("0");
         xogo.killAll();
