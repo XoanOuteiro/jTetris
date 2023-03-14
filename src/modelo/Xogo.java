@@ -29,7 +29,7 @@ public class Xogo {
     private int score = 0;
     private int numeroLinas = 0;
 
-    public Ficha fichaActual;
+    private Ficha fichaActual;
 
     //Construction
     public Xogo(JPanel holder, VentanaPrincipal ventana, int colAm) {

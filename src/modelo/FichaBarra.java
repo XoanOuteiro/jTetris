@@ -15,7 +15,7 @@ public class FichaBarra extends Ficha{
         [2]
         [3]
     */
-    public Color tColor = Color.yellow;
+    private Color tColor = Color.yellow;
     private int curPos;
     
     //Construcion

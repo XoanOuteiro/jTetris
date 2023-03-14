@@ -14,7 +14,7 @@ public class FichaL extends Ficha{
     [1]
     [2][3]
     */
-    public Color tColor = Color.green;
+    private Color tColor = Color.green;
     private int curPos;
     
     //Construction

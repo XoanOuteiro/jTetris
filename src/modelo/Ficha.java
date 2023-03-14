@@ -8,7 +8,7 @@ import java.awt.Color;
  */
 public abstract class Ficha {
     //Common atributes
-    public Cadrado[] cadrados = new Cadrado[4];
+    protected Cadrado[] cadrados = new Cadrado[4];
     
     //Common methods
     public Cadrado[] getCadrados(){

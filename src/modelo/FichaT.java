@@ -20,7 +20,7 @@ public class FichaT extends Ficha {
     [2]
      */
     //Color
-    public Color tColor = Color.red;
+    private Color tColor = Color.red;
     private int curPos;
         
     //Player-controlled instancing

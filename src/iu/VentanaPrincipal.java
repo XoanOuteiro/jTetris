@@ -683,7 +683,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.gameSpeedTimer = new Timer(500, (ActionEvent e) -> {
 
             xogo.moverFichaAbaixo();
-            xogo.fichaActual.updateLabelPos();
+            xogo.getFichaActual().updateLabelPos();
             xogo.setScore(xogo.getScore()+1);
             this.panelScore2.setText(Integer.toString(xogo.getScore()));
 
