@@ -28,6 +28,7 @@ public class Xogo {
     private Iterator<Cadrado> it;
     private int score = 0;
     private int numeroLinas = 0;
+    private int level = 0;
 
     private Ficha fichaActual;
 
@@ -109,6 +110,10 @@ public class Xogo {
         return MAX_X;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
     public static int getMAX_Y() {
         return MAX_Y;
     }
@@ -179,6 +184,10 @@ public class Xogo {
 
     public void setRowAM(int rowAM) {
         this.rowAM = rowAM;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public void setColAM(int colAM) {

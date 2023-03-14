@@ -195,7 +195,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         configButton = new javax.swing.JButton();
 
         levelSlider.setMaximum(25);
+        levelSlider.setMinimum(1);
         levelSlider.setPaintTicks(true);
+        levelSlider.setValue(1);
+        levelSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                levelSliderStateChanged(evt);
+            }
+        });
 
         stickyKeys.setText("Sticky Keys");
         stickyKeys.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -609,6 +616,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         configMenu.setVisible(true);
         configMenu.setPreferredSize(configMenu.getPreferredSize());
     }//GEN-LAST:event_configButtonActionPerformed
+
+    private void levelSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_levelSliderStateChanged
+        
+        
+        this.xogo.setLevel(levelSlider.getValue());
+    }//GEN-LAST:event_levelSliderStateChanged
 
     public void moveKeyDetection(KeyEvent evt) {
 
