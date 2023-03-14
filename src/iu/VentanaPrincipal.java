@@ -188,7 +188,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         helpButton = new javax.swing.JButton();
         restartButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-        configButton = new javax.swing.JToggleButton();
+        configButton = new javax.swing.JButton();
 
         levelSlider.setMaximum(25);
         levelSlider.setPaintTicks(true);
@@ -468,9 +468,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         configButton.setBackground(new java.awt.Color(255, 255, 255));
         configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton_withButton_unclicked.png"))); // NOI18N
-        configButton.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                configButtonStateChanged(evt);
+        configButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                configButtonActionPerformed(evt);
             }
         });
 
@@ -554,7 +554,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_playButtonStateChanged
 
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
-        // TODO add your handling code here:
+        helpMenu.setVisible(true);
+        helpMenu.setSize(helpMenu.getPreferredSize());
     }//GEN-LAST:event_helpButtonActionPerformed
 
     private void stickyKeysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stickyKeysActionPerformed
@@ -568,24 +569,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         this.dispose();
     }//GEN-LAST:event_exitButtonActionPerformed
-
-    private void configButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_configButtonStateChanged
-        if(configButton.isSelected()){
-            
-            configMenu.setVisible(true);
-            configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton_withButton_clicked.png")));
-            
-            if(playButton.isSelected()){
-                playButton.doClick();
-            }
-            
-        }else{
-            
-            configMenu.setVisible(false);
-            configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buttonSprites/configButton_withButton_unclicked.png")));
-            
-        }
-    }//GEN-LAST:event_configButtonStateChanged
 
     private void stickyKeysStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_stickyKeysStateChanged
         if(stickyKeys.isSelected()){
@@ -617,6 +600,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_xogoMainPaneKeyTyped
+
+    private void configButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configButtonActionPerformed
+        configMenu.setVisible(true);
+        configMenu.setPreferredSize(configMenu.getPreferredSize());
+    }//GEN-LAST:event_configButtonActionPerformed
 
     public void moveKeyDetection(KeyEvent evt) {
 
@@ -703,7 +691,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton configButton;
+    private javax.swing.JButton configButton;
     private javax.swing.JFrame configMenu;
     private javax.swing.JButton exitButton;
     private javax.swing.JButton helpButton;
