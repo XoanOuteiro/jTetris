@@ -339,7 +339,7 @@ public class Xogo {
 
     private void setupThisFicha(Ficha actual) {
         for (int i = 0; i < 4; i++) {
-            this.holder.add(fichaActual.cadrados[i].label_cadrado);
+            this.holder.add(fichaActual.cadrados[i].getLabel());
         }
 
     }

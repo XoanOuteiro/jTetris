@@ -54,7 +54,7 @@ public abstract class Ficha {
      */ 
     public void updateLabelPos(){
         for (int i = 0; i < 4; i++) {
-            this.cadrados[i].label_cadrado.setLocation(this.cadrados[i].getX(),this.cadrados[i].getY());
+            this.cadrados[i].getLabel().setLocation(this.cadrados[i].getX(),this.cadrados[i].getY());
         }
     }
     
@@ -123,7 +123,7 @@ public abstract class Ficha {
      * true if has collided, false otherwise
      */
     public boolean isCollideWithLowerLimit(){
-        if(this.getMostDownSquare().y >= Xogo.MAX_Y){   //Remember Y increments as pieces descend
+        if(this.getMostDownSquare().getY() >= Xogo.MAX_Y){   //Remember Y increments as pieces descend
             
             return true;
             

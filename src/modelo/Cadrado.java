@@ -10,12 +10,12 @@ import javax.swing.border.Border;
  * by: @XoanOuteiro & @Samuyo
  */
 public class Cadrado {
-    public int x;
-    public int y;
-    public Color corRecheo;
-    public int lado_cadrado ; //same as xogo.java
-    public JLabel label_cadrado;
-    public boolean isFloored;
+    private int x;
+    private int y;
+    private Color corRecheo;
+    private int lado_cadrado ; //same as xogo.java
+    private JLabel label_cadrado;
+    private boolean isFloored;
     
     //Construction
     public Cadrado(boolean specify, int posX, int posY, Color color){
