@@ -17,15 +17,15 @@ public class Xogo {
     public static final int LADO_CADRADO = 20;
     public static final int MAX_X = 240;            //Changed to -20 so that X and Y detection would work
     public static final int MAX_Y = 580;
-    public boolean pausa;
-    public VentanaPrincipal ventanaPrincipal;
-    public JPanel holder;
-    public int numeroLineas;
-    public int rowAM;
-    public int colAM;
-    public int celSiz;//= to lado¿
-    public ArrayList<Cadrado> floor;
-    public Iterator<Cadrado> it;
+    private boolean pausa;
+    private VentanaPrincipal ventanaPrincipal;
+    private JPanel holder;
+    private int numeroLineas;
+    private int rowAM;
+    private int colAM;
+    private int celSiz;//= to lado¿
+    private ArrayList<Cadrado> floor;
+    private Iterator<Cadrado> it;
     private int score = 0;
     private int numeroLinas = 0;
 
