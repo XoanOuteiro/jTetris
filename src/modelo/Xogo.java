@@ -99,6 +99,8 @@ public class Xogo {
     }
 
     //Getters & Setters
+    
+    //*****************************************************************************************************
     public static int getLADO_CADRADO() {
         return LADO_CADRADO;
     }
@@ -206,7 +208,9 @@ public class Xogo {
     public void setFichaActual(Ficha fichaActual) {
         this.fichaActual = fichaActual;
     }
-
+    //***********************************************************************************************************
+    
+    
     //Utility logic
     /**
      *
